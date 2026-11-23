@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McCarthy’s Court: From Georgian Academy to Commercial Street Enclave</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            parchment: {
+              50: '#fcfaf6',
+              100: '#f6f1e5',
+              200: '#ece3d0',
+              300: '#ded0b5',
+              400: '#c5b18f',
+              800: '#383226',
+              900: '#211d16',
+            },
+            ink: {
+              DEFAULT: '#1c1a17',
+              light: '#3e3a34',
+              muted: '#686257',
+              faint: '#9a9284'
+            },
+            vermilion: {
+              DEFAULT: '#9e3521',
+              dark: '#782312',
+              light: '#c85a44'
+            },
+            antiqueGold: {
+              DEFAULT: '#b38b4d',
+              light: '#d4b073',
+              dark: '#87642e'
+            }
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            display: ['Cormorant Garamond', 'Times New Roman', 'serif'],
+            header: ['Cinzel', 'Trajan Pro', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Editorial Drop Caps */
+    .drop-cap::first-letter {
+      float: left;
+      font-family: 'Cinzel', serif;
+      font-size: 4.5rem;
+      line-height: 0.82;
+      padding-top: 6px;
+      padding-right: 12px;
+      padding-bottom: 0px;
+      color: #9e3521;
+      font-weight: 700;
+    }
+    @media (max-width: 640px) {
+      .drop-cap::first-letter {
+        font-size: 3.8rem;
+        padding-right: 8px;
+      }
+    }
+
+    #progress-bar {
+      transition: width 0.08s ease-out;
+    }
+
+    /* Samuel Pepys Style Rich Tooltips */
+    .pepys-entry {
+      position: relative;
+      display: inline;
+      cursor: pointer;
+      border-bottom: 1.5px dotted #9e3521;
+      color: inherit;
+    }
+    .pepys-entry:hover, .pepys-entry.active {
+      color: #9e3521;
+      background-color: rgba(179, 139, 77, 0.15);
+    }
+    .pepys-popover {
+      display: none;
+      background: #ffffff;
+      border: 1px solid #c5b18f;
+      border-top: 3px solid #9e3521;
+      border-radius: 4px;
+      padding: 12px 14px;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      line-height: 1.45;
+      color: #3e3a34;
+      text-align: left;
+      z-index: 70;
+      pointer-events: auto;
+    }
+
+    /* Mobile: Anchored viewport sheet to prevent horizontal clipping */
+    @media (max-width: 639px) {
+      .pepys-popover {
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1.5rem;
+        width: auto;
+        max-width: calc(100vw - 2rem);
+        transform: none;
+        box-shadow: 0 10px 25px -5px rgba(28, 26, 23, 0.35), 0 8px 10px -6px rgba(28, 26, 23, 0.25);
+      }
+    }
+
+    /* Desktop: Centered floating balloon above term */
+    @media (min-width: 640px) {
+      .pepys-popover {
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(290px, 85vw);
+        box-shadow: 0 10px 25px -5px rgba(28, 26, 23, 0.22);
+      }
+      .pepys-popover::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -6px;
+        border-width: 6px;
+        border-style: solid;
+        border-color: #ffffff transparent transparent transparent;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .pepys-entry:hover .pepys-popover,
+      .pepys-entry:focus .pepys-popover {
+        display: block;
+      }
+    }
+    .pepys-entry.active .pepys-popover {
+      display: block !important;
+    }
+
+    /* Responsive Sidenotes (Edward Tufte Style) */
+    .sidenote-wrapper {
+      position: relative;
+    }
+    .sidenote {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #686257;
+      background: #f6f1e5;
+      border-left: 3px solid #b38b4d;
+      padding: 10px 14px;
+      margin: 16px 0;
+      border-radius: 0 6px 6px 0;
+    }
+    @media (min-width: 1280px) {
+      .sidenote {
+        position: absolute;
+        left: calc(100% + 40px);
+        top: 0;
+        width: 260px;
+        margin: 0;
+        background: transparent;
+        border-left: 2px solid #b38b4d;
+        padding: 2px 0 2px 14px;
+      }
+    }
+
+    /* Map Viewer Container & Controls */
+    .map-pan-container {
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+    }
+    .map-pan-container:active {
+      cursor: grabbing;
+    }
+    .map-zoom-target {
+      transform-origin: center center;
+      transition: transform 0.15s ease-out;
+      will-change: transform;
+    }
+
+    /* Footnote Superscripts - Preserves baseline rhythm */
+    .fn-ref {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.68em;
+      line-height: 0;
+      vertical-align: baseline;
+      position: relative;
+      top: -0.45em;
+      font-weight: 700;
+      color: #9e3521;
+      padding: 0 1px;
+      text-decoration: none;
+    }
+    .fn-ref:hover {
+      text-decoration: underline;
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-[#fcfaf6] text-ink antialiased selection:bg-antiqueGold/30 selection:text-ink transition-colors duration-300">
+
+  <!-- Sticky Top Reading Progress Bar -->
+  <div class="fixed top-0 left-0 w-full h-1 bg-parchment-200 z-50 no-print">
+    <div id="progress-bar" class="h-full bg-vermilion w-0"></div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-[#fcfaf6]/95 backdrop-blur-md border-b border-parchment-300 transition-colors duration-300 no-print">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Branding -->
+      <div class="flex items-center min-w-0">
+        <span class="font-header text-xs sm:text-xs tracking-widest text-vermilion uppercase font-bold truncate">
+          Newport Cornucopia
+        </span>
+        <span class="text-parchment-400 text-sm font-light mx-2 hidden md:inline">|</span>
+        <span class="font-display italic text-sm text-ink-light font-semibold hidden md:inline truncate">
+          McCarthy’s Court
+        </span>
+      </div>
+
+      <!-- Right: Action Buttons -->
+      <div class="flex items-center space-x-1.5 sm:space-x-3 text-xs font-sans shrink-0">
+        <a href="#pre-commercial-maps" class="px-2 sm:px-2.5 py-1 rounded bg-parchment-100 hover:bg-parchment-200 text-ink-muted hover:text-ink transition hidden md:inline">
+          Maps
+        </a>
+        <a href="#interactive-milestones" class="px-2 sm:px-2.5 py-1 rounded bg-parchment-100 hover:bg-parchment-200 text-ink-muted hover:text-ink transition hidden sm:inline">
+          Timeline
+        </a>
+        <a href="#occupants-directory" class="px-2 sm:px-2.5 py-1 rounded bg-parchment-100 hover:bg-parchment-200 text-ink-muted hover:text-ink transition text-[11px] sm:text-xs whitespace-nowrap">
+          Directory
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Header Section -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-8 text-center">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <span class="h-px w-8 sm:w-16 bg-vermilion"></span>
+        <span class="font-header text-xs sm:text-sm tracking-[0.22em] text-vermilion uppercase font-bold">
+          Commercial Street • 1750–1888
+        </span>
+        <span class="h-px w-8 sm:w-16 bg-vermilion"></span>
+      </div>
+
+      <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-ink leading-[1.08] mb-6">
+        McCarthy’s Court
+      </h1>
+
+      <p class="font-display italic text-xl sm:text-2xl md:text-3xl text-ink-muted max-w-3xl mx-auto leading-snug mb-8">
+        Tracing a quiet cobbled cul-de-sac off Commercial Street from a 1750 hillside orchard and Callaghan McCarthy’s £4,000 classical boarding academy to Victorian cottages and Woodbine Cottage.
+      </p>
+
+      <!-- Collapsible Context Accordion -->
+      <details class="group max-w-2xl mx-auto mt-12 mb-6 sm:mt-16 sm:mb-8 bg-parchment-100/70 hover:bg-parchment-100 border border-parchment-300 rounded-md transition text-left">
+        <summary class="p-3 sm:px-4 cursor-pointer select-none flex items-center justify-between font-sans text-xs text-ink-muted">
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-antiqueGold"></span>
+            <strong class="font-header tracking-wider uppercase text-antiqueGold-dark text-[11px]">Archival Note:</strong>
+            <span class="hidden sm:inline italic text-ink-light font-serif">On the maps, deeds, and primary sources…</span>
+          </div>
+          <span class="text-[11px] font-sans text-vermilion group-open:hidden flex items-center gap-1 font-medium">
+            Read note <span aria-hidden="true">↓</span>
+          </span>
+          <span class="text-[11px] font-sans text-ink-muted hidden group-open:inline">
+            Close <span aria-hidden="true">↑</span>
+          </span>
+        </summary>
+        <div class="px-4 pb-4 pt-1 border-t border-parchment-200/60 font-sans text-xs text-ink-light leading-relaxed">
+          This micro-history reconstructs the origins of McCarthy’s Court between Nos. 153 and 154 Commercial Street, Newport, using borough and estate surveys (c. 1750, 1794, 1800, 1882, and 1888), regional newspaper notices in the <em>Gloucester Journal</em>, <em>Bristol Mirror</em>, and <em>Monmouthshire Merlin</em>, Llandaff Consistory Court probate records, the 1841 and 1851 censuses, and the 1850 General Board of Health sanitary report.
+        </div>
+      </details>
+    </section>
+
+    <!-- Narrative Article Body -->
+    <article id="article-body" class="max-w-3xl mx-auto px-4 sm:px-6 font-serif text-lg sm:text-xl text-ink leading-relaxed space-y-8 sm:space-y-9">
+
+      <!-- SECTION I: INTRODUCTION -->
+      <section class="space-y-5 sm:space-y-6">
+        <div class="pt-10 pb-3 mb-6 border-b border-parchment-300">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="h-0.5 w-6 bg-vermilion"></span>
+            <span class="font-header text-xs sm:text-sm tracking-[0.2em] text-vermilion font-bold uppercase">Section I</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-ink leading-tight">
+            Introduction
+          </h2>
+        </div>
+
+        <p class="drop-cap">
+          Today, <strong>McCarthy’s Court</strong> exists as a quiet, unassuming cobbled dead-end lane opening off the western side of Commercial Street in Newport, nestled between Nos. 153 and 154. Truncated in the twentieth century by commercial redevelopment, it has long been an urban enigma—a surviving fragment of historic streetscape whose true origins and namesake have largely faded from local memory.
+        </p>
+
+        <div class="sidenote-wrapper">
+          <p>
+            To understand how this court came to be, one must look back to the turn of the nineteenth century. In 1801, Newport was still a compact river port with a population of just 1,087 residents, clustered tightly along High Street, the Westgate, and the banks of the River Usk beneath the ancient parish church of St Woolos. However, the completion of the Monmouthshire Canal in the late 1790s triggered a rapid commercial and industrial expansion. The town was beginning to outgrow its medieval footprint, and landowners urgently sought direct transit routes between the old borough centre and the newly emerging shipping wharves downstream at Pillgwenlly.
+          </p>
+          <div class="sidenote">
+            <strong>Demographic Shift:</strong> In 1801 Newport held just 1,087 residents; the Monmouthshire Canal’s opening in the late 1790s set off the rapid expansion southwards toward Pillgwenlly.
+          </div>
+        </div>
+
+        <p>
+          This commercial momentum led directly to the creation of <strong>Commercial Street</strong>. Conceived around 1807, the new thoroughfare was designed as a broad, straight turnpike cut through agricultural enclosures and gardens. By 1809, construction was actively under way.
+        </p>
+
+        <!-- Exhibit: september-1809-parliamentary-notice.png -->
+        <figure class="my-8 sm:my-10 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink">September 1809 Parliamentary Notice</h3>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">1809 Primary Notice</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/september-1809-parliamentary-notice.png', 'September 1809 Parliamentary Notice — Application for the 1810 Newport Improvement Act (50 Geo. III)')">
+            <img src="images/september-1809-parliamentary-notice.png" alt="September 1809 Parliamentary Notice" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/september-1809-parliamentary-notice.png')">
+          </div>
+
+          <figcaption class="mt-3 font-sans text-xs text-ink-muted leading-relaxed">
+            <strong class="text-ink font-semibold">Archival Significance:</strong> Published by Tredegar Estate solicitor Thomas Prothero in September 1809, this notice announced the application for the <strong>1810 Newport Improvement Act</strong> (50 Geo. III), seeking compulsory purchase powers at the Westgate entrance.
+          </figcaption>
+        </figure>
+
+        <p>
+          In September 1809, the Tredegar Estate solicitor, Thomas Prothero, published a formal Parliamentary notice announcing an application for what became the 
+          <span class="pepys-entry" tabindex="0">
+            <strong>1810 Newport Improvement Act</strong>
+            <span class="pepys-popover">
+              <strong class="block text-vermilion font-semibold mb-0.5 text-xs font-sans uppercase tracking-wider">50 Geo. III (1810)</strong>
+              Parliamentary Act that formally straightened, widened, and renamed the southerly route from the Westgate to Pillgwenlly as Commercial Street.
+            </span>
+          </span> (50 Geo. III)<a href="#fn-1" id="ref-1" class="fn-ref">1</a>. The notice specifically sought compulsory purchase powers to demolish two older domestic dwellings—the houses of William Beetle and William Howell—which blocked the northern entrance where the new highway joined the Westgate.
+        </p>
+
+        <p>
+          Even before the street was officially opened under the 1810 Act, pioneers were staking their claims along the projected line. Most notable was the 
+          <span class="pepys-entry" tabindex="0">
+            <strong>Wesleyan Methodist congregation</strong>
+            <span class="pepys-popover">
+              <strong class="block text-vermilion font-semibold mb-0.5 text-xs font-sans uppercase tracking-wider">Nos. 156–158 Commercial Street</strong>
+              Erected in 1808 on the western side of the staked route while the surrounding land was still open fields, immediately north of the future Newport School plot.
+            </span>
+          </span>, which erected a stone chapel on the western side of the staked route in <strong>1808</strong> (Nos. 156–158). Early denominational accounts describe this chapel as standing isolated in the open fields, well away from other buildings—a solitary outpost on the rural fringe that predated the paved street itself. It was on the vacant agricultural plot immediately adjoining the southern boundary of this chapel that the story of McCarthy’s Court truly began.
+        </p>
+      </section>
+
+      <!-- Editorial Fleuron Break -->
+      <div class="pt-12 pb-8 relative flex items-center justify-center" aria-hidden="true">
+        <div class="w-full max-w-[280px] sm:max-w-[360px] h-px bg-gradient-to-r from-transparent via-parchment-400 to-transparent"></div>
+        <div class="absolute bg-[#fcfaf6] px-3 flex items-center justify-center">
+          <svg class="w-3.5 h-3.5 block text-antiqueGold" viewBox="0 -3 24 24" fill="currentColor">
+            <path d="M12 2C11.5 4 10 6 8 7C6 8 4 8.5 2 9C4 9.5 6 10 8 11C10 12 11.5 14 12 16C12.5 14 14 12 16 11C18 10 20 9.5 22 9C20 8.5 18 8 16 7C14 6 12.5 4 12 2Z"/>
+            <circle cx="12" cy="9" r="1.5" class="text-vermilion" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- SECTION II: THE AREA PRIOR TO COMMERCIAL STREET -->
+      <section id="pre-commercial-maps" class="space-y-5 sm:space-y-6">
+        <div class="pb-3 mb-6 border-b border-parchment-300">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="h-0.5 w-6 bg-vermilion"></span>
+            <span class="font-header text-xs sm:text-sm tracking-[0.2em] text-vermilion font-bold uppercase">Section II</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-ink leading-tight">
+            The Area Prior to Commercial Street (1750–1810)
+          </h2>
+        </div>
+
+        <p>
+          Before the surveyors and road-builders laid out Commercial Street, the land west of the River Usk was an expanse of sloping meadows, orchards, and timber yards. Three historic surveys trace the gradual evolution of this ground across sixty years.
+        </p>
+
+        <!-- Exhibit: 1750-borough-survey-map.png -->
+        <figure class="my-8 sm:my-10 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink">c. 1750s Borough Survey Map</h3>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Plot 81 • c. 1750</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1750-borough-survey-map.png', 'c. 1750s Borough Survey Map — Showing Plot 81 held by Thomas Phillips, Gent.')">
+            <img src="images/1750-borough-survey-map.png" alt="c. 1750s Borough Survey Map" class="w-full max-h-[480px] object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1750-borough-survey-map.png')">
+          </div>
+
+          <figcaption class="mt-3 font-sans text-xs text-ink-muted leading-relaxed">
+            <strong class="text-ink font-semibold">Cartographic Detail:</strong> The earliest detailed survey depicts the future site of McCarthy’s Court as part of <strong>Plot 81</strong>, an enclosed hillside orchard held by Thomas Phillips, Gent., sloping up toward Stow Hill.
+          </figcaption>
+        </figure>
+
+        <p>
+          The earliest detailed record of this land appears on the borough survey map of <strong>c. 1750</strong><a href="#fn-2" id="ref-2" class="fn-ref">2</a>. At this date, the plot that would become McCarthy’s Court and its roadside frontage formed part of an enclosed agricultural holding recorded as <strong>Plot 81</strong>, held by 
+          <span class="pepys-entry" tabindex="0">
+            <strong>Thomas Phillips, Gent.</strong>
+            <span class="pepys-popover">
+              <strong class="block text-vermilion font-semibold mb-0.5 text-xs font-sans uppercase tracking-wider">Plot 81 Proprietor</strong>
+              Attorney and Tredegar agent who held the enclosed hillside orchard south of Westgate Street on the c. 1750 Newport borough survey.
+            </span>
+          </span> The map depicts this parcel as an enclosed hillside orchard sloping upwards towards the ridges of Stow Hill. To the east lay the rear burgage plots of Skinner Street and an early lane marked as <strong>“Corn Street”</strong>, complete with a town pump. To the north, the only major thoroughfare was the road leading from the Westgate, labelled on the plan as <strong>“Westgate Street”</strong>. South of this gate, there was no continuous road through the fields—only tracks and hedgerows separating private plots.
+        </p>
+
+        <!-- Exhibit: 1794-tredegar-estate-survey-map.png -->
+        <figure class="my-8 sm:my-10 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink">1794 Tredegar Estate Survey Map</h3>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Estate Survey • 1794</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1794-tredegar-estate-survey-map.png', '1794 Tredegar Estate Survey Map — Showing Deal Yard, Caer Fitchog, and Friars lands')">
+            <img src="images/1794-tredegar-estate-survey-map.png" alt="1794 Tredegar Estate Survey Map" class="w-full max-h-[480px] object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1794-tredegar-estate-survey-map.png')">
+          </div>
+
+          <figcaption class="mt-3 font-sans text-xs text-ink-muted leading-relaxed">
+            <strong class="text-ink font-semibold">Cartographic Detail:</strong> The 1794 estate plan marks the future Commercial Street line as an informal hedgerow and cartway skirting the eastern edge of <strong>“Deal Yard”</strong>, <strong>“Caer Fitchog”</strong>, and the <strong>“Friars”</strong> lands.
+          </figcaption>
+        </figure>
+
+        <p>
+          By <strong>1794</strong>, when the Tredegar Estate commissioned a comprehensive survey of its urban margins, the agricultural character of the area was beginning to adapt to maritime trade. The survey marks the future corridor of Commercial Street crossing open enclosures named <strong>“Deal Yard”</strong> (a commercial timber storage yard reflecting Newport's expanding trade in imported Baltic timber), <strong>“Caer Fitchog”</strong>, and the broader <strong>“Friars”</strong> lands. On this map, the future line of Commercial Street appears simply as an informal hedgerow and cartway passing along the eastern edge of Deal Yard, utilised by farm traffic and hauliers skirting the borough boundary.
+        </p>
+
+        <!-- Exhibit: 1800-coxe-newport-plan.png -->
+        <figure class="my-8 sm:my-10 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink">c. 1800 Archdeacon Coxe Plan</h3>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Historical Tour • 1800</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1800-coxe-newport-plan.png', 'c. 1800 Archdeacon William Coxe Plan — Historical Tour in Monmouthshire')">
+            <img src="images/1800-coxe-newport-plan.png" alt="c. 1800 Archdeacon Coxe Plan" class="w-full max-h-[480px] object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1800-coxe-newport-plan.png')">
+          </div>
+
+          <figcaption class="mt-3 font-sans text-xs text-ink-muted leading-relaxed">
+            <strong class="text-ink font-semibold">Cartographic Detail:</strong> Engraved for Archdeacon William Coxe’s <em>Historical Tour in Monmouthshire</em> (1800), showing the southerly track across the Friars land still labelled as an extension of <strong>“Corn Street”</strong> prior to the 1810 Act.
+          </figcaption>
+        </figure>
+
+        <p>
+          The final pre-Improvement phase is captured on the town plan published in Archdeacon William Coxe’s <em>Historical Tour in Monmouthshire</em> in <strong>1800</strong><a href="#fn-3" id="ref-3" class="fn-ref">3</a>. On Coxe's map, the track running southwards from the Westgate across the Friars land toward Pillgwenlly is explicitly engraved as <strong>“Corn Street”</strong>. This reveals that before the name was restricted to the shorter parallel side street we know today, the southerly corridor was briefly referred to as an extension of Corn Street. When the 1810 Act was enacted, this thoroughfare was formally straightened, widened, and renamed <strong>Commercial Street</strong>, reflecting its role as the economic spine of the expanding town. The original track was superseded, creating the uniform building plots that were promptly leased to speculative builders and private gentlemen.
+        </p>
+      </section>
+
+      <!-- Editorial Fleuron Break -->
+      <div class="pt-12 pb-8 relative flex items-center justify-center" aria-hidden="true">
+        <div class="w-full max-w-[280px] sm:max-w-[360px] h-px bg-gradient-to-r from-transparent via-parchment-400 to-transparent"></div>
+        <div class="absolute bg-[#fcfaf6] px-3 flex items-center justify-center">
+          <svg class="w-3.5 h-3.5 block text-antiqueGold" viewBox="0 -3 24 24" fill="currentColor">
+            <path d="M12 2C11.5 4 10 6 8 7C6 8 4 8.5 2 9C4 9.5 6 10 8 11C10 12 11.5 14 12 16C12.5 14 14 12 16 11C18 10 20 9.5 22 9C20 8.5 18 8 16 7C14 6 12.5 4 12 2Z"/>
+            <circle cx="12" cy="9" r="1.5" class="text-vermilion" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- SECTION III: THE SCHOOL ARRIVES -->
+      <section class="space-y-5 sm:space-y-6">
+        <div class="pb-3 mb-6 border-b border-parchment-300">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="h-0.5 w-6 bg-vermilion"></span>
+            <span class="font-header text-xs sm:text-sm tracking-[0.2em] text-vermilion font-bold uppercase">Section III</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-ink leading-tight">
+            The School Arrives
+          </h2>
+        </div>
+
+        <p>
+          In the final days of 1810, as the newly created Commercial Street was being opened to traffic, an ambitious notice appeared in the regional press announcing the establishment of a prestigious educational institution in Newport.
+        </p>
+
+        <!-- Exhibit: 1810-12-31-gloucester-journal-prospectus.png -->
+        <figure class="my-8 sm:my-10 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink">31 December 1810 Gloucester Journal Advert</h3>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Prospectus • 1810</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1810-12-31-gloucester-journal-prospectus.png', '31 December 1810 Gloucester Journal Advert — Prospectus for the Newport School')">
+            <img src="images/1810-12-31-gloucester-journal-prospectus.png" alt="31 December 1810 Gloucester Journal Advert" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1810-12-31-gloucester-journal-prospectus.png')">
+          </div>
+
+          <figcaption class="mt-3 font-sans text-xs text-ink-muted leading-relaxed">
+            <strong class="text-ink font-semibold">Archival Significance:</strong> Published in <em>The Gloucester Journal</em> on 31 December 1810, announcing the opening of the <strong>Newport School</strong> on Monday, 21 January 1811 under Callaghan McCarthy and Richard Davis<a href="#fn-4" class="fn-ref">4</a>.
+          </figcaption>
+        </figure>
+
+        <div class="sidenote-wrapper">
+          <p>
+            Published on 31 December 1810 in the <em>Gloucester Journal</em><a href="#fn-4" id="ref-4" class="fn-ref">4</a>, the prospectus announced that on Monday, 21 January 1811, a new classical and commercial boarding academy—to be known simply as the <strong>Newport School</strong>—would open its doors. The establishment was a joint enterprise between two schoolmasters: <strong>Callaghan McCarthy</strong> and <strong>Richard Davis</strong>.
+          </p>
+          <div class="sidenote">
+            <strong>Capital Outlay:</strong> £4,000 in 1811 was an extraordinary sum for a provincial boarding academy—the equivalent of several hundred thousand pounds in early-nineteenth-century building capital.
+          </div>
+        </div>
+
+        <p>
+          To accommodate the academy, the partners took a building lease directly from Sir Charles Morgan and the Tredegar Wharf Company for the roadside plot immediately south of the 1808 Wesleyan Chapel. Here they oversaw the construction of a substantial, purpose-built complex, expending a staggering <strong>£4,000</strong> on the buildings, schoolrooms, domestic quarters, and grounds.
+        </p>
+
+        <!-- Aside: Who Was Callaghan McCarthy? -->
+        <div class="my-8 sm:my-10 p-5 sm:p-6 bg-parchment-100/80 border border-parchment-300 rounded-lg space-y-5">
+          <div class="border-b border-parchment-300 pb-2.5">
+            <span class="font-header text-[11px] tracking-[0.2em] text-antiqueGold-dark font-bold uppercase block">Biographical Aside</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold text-ink mt-0.5">
+              Who Was Callaghan McCarthy?
+            </h3>
+          </div>
+
+          <p>
+            To the burgesses of Newport, Callaghan McCarthy might initially have seemed like an outsider, but he arrived with an extraordinary pedigree forged in some of the most rigorous educational institutions in Britain.
+          </p>
+
+          <!-- Exhibit: 1810-1813-mccarthy-testimonials.png -->
+          <figure class="my-6 p-4 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-lg sm:text-xl font-bold text-ink">1810 / 1813 Testimonial Citations</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Referees &amp; Credentials</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1810-1813-mccarthy-testimonials.png', '1810 / 1813 Testimonial Citations — Callaghan McCarthy’s academic and tutorage references')">
+              <img src="images/1810-1813-mccarthy-testimonials.png" alt="1810 / 1813 Testimonial Citations" class="w-full max-h-80 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1810-1813-mccarthy-testimonials.png')">
+            </div>
+          </figure>
+
+          <p>
+            Born around 1771 or 1772, McCarthy had spent his formative years acquiring a deep mastery of mathematics, classical literature, and modern languages. A subsequent advertisement reveals that he had resided upwards of six years in France during his early adulthood, giving him an authentic fluency in spoken and written French that set him apart from typical provincial schoolmasters of the era.
+          </p>
+
+          <p>
+            His first recorded post in England was a four-year tenure, from approximately 1794 to 1798, as French and Mathematical Master at 
+            <span class="pepys-entry" tabindex="0">
+              John Revoult’s celebrated academy
+              <span class="pepys-popover">
+                <strong class="block text-vermilion font-semibold mb-0.5 text-xs font-sans uppercase tracking-wider">Walworth, Surrey</strong>
+                A prominent late-18th-century classical and commercial academy in South London where McCarthy taught French and mathematics (c. 1794–1798).
+              </span>
+            </span> in Walworth, Surrey. It was almost certainly during this period in historic Surrey that Callaghan met his future wife, <strong>Ann</strong>, who had been born in Reigate, Surrey, around 1768 or 1769. Ann was approximately three years his senior and would become his lifelong partner, managing the complex domestic affairs of his boarding schools.
+          </p>
+
+          <p>
+            Following his time in Surrey, McCarthy served for seven years, from roughly 1798 to 1805, as Head Classical Assistant to the Reverend Dr Charles Richards at 
+            <span class="pepys-entry" tabindex="0">
+              Hyde Abbey School in Winchester
+              <span class="pepys-popover">
+                <strong class="block text-vermilion font-semibold mb-0.5 text-xs font-sans uppercase tracking-wider">Winchester Preparatory</strong>
+                One of England’s foremost classical preparatory schools under Dr Charles Richards, counting future Prime Minister George Canning among its alumni.
+              </span>
+            </span>. Hyde Abbey was one of the foremost classical preparatory schools in the country, counting future Prime Minister George Canning among its alumni. Under Dr Richards, McCarthy was responsible for grounding young gentlemen in advanced Greek and Latin syntax, recitation, and Latin verse composition, preparing them directly for Oxford, Cambridge, and the great public schools.
+          </p>
+
+          <p>
+            Before making the move to South Wales, McCarthy took up posts as a resident private tutor to two prominent families. He first taught the sons of <strong>Robert Were Fox, Esq.</strong>, of Falmouth—the distinguished Quaker shipping magnate, transatlantic packet agent, and intellectual pillar of the Royal Cornwall Polytechnic Society—and subsequently the family of <strong>Lieutenant-General Sir George Hewett, 1st Baronet</strong>, while Hewett was serving as Commander-in-Chief in India. When McCarthy chose to settle in Newport in the winter of 1810, he brought the high standards and educational expectations of the English gentry and mercantile elite directly to the Welsh frontier.
+          </p>
+        </div>
+
+        <!-- Daily Life, Boarding Standards, and Material Culture -->
+        <div class="pt-4 space-y-5">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-ink border-b border-parchment-200 pb-2">
+            Daily Life, Boarding Standards, and the Material Culture of the Academy
+          </h3>
+
+          <p>
+            Over the following two decades, advertisements in the <em>Gloucester Journal</em> and <em>Bristol Mirror</em> mapped the growth and everyday routine of the school, revealing a highly structured, immersive, and disciplined world.
+          </p>
+
+          <!-- Exhibit: 1811-newport-school-prospectus.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">1811 Newport School Prospectus</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Curriculum &amp; Routine</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1811-newport-school-prospectus.png', '1811 Newport School Prospectus — Curriculum, daily hours, and French immersion')">
+              <img src="images/1811-newport-school-prospectus.png" alt="1811 Newport School Prospectus" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1811-newport-school-prospectus.png')">
+            </div>
+          </figure>
+
+          <p>
+            The academic day was intensive. Instruction began promptly at 7:00 a.m. and, with regulated intervals for meals, exercise, and evening preparation, continued until 9:00 p.m. Capitalising on the masters' continental experience, spoken French was made a compulsory element of daily conversation outside the classroom—a progressive pedagogical method rarely found outside elite metropolitan academies.
+          </p>
+
+          <p>
+            The curriculum catered to both traditional aristocratic ambitions and modern commercial demands. In the classical department, pupils studied Latin and Greek authors, composition, and mythology for university matriculation. In the commercial department, overseen by Davis, boys were drilled in merchant’s accounts, book-keeping, mathematics, and fine penmanship. In addition, the school offered specialised naval and military training, including navigation, geography, coastal surveying, and the use of terrestrial and celestial globes, preparing pupils for entry into the Royal Navy, the East India Company, and the military colleges at Sandhurst and Woolwich. Accomplishments such as drawing, dancing, and fencing were offered as optional extras taught by visiting masters.
+          </p>
+
+          <!-- Exhibit: 1812-1813-terms-and-requirements.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">1812 / 1813 Terms and Requirements</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Fees &amp; Silver Spoons</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1812-1813-terms-and-requirements.png', '1812 / 1813 Terms and Requirements — Fees, single beds, towels, and silver spoon stipulation')">
+              <img src="images/1812-1813-terms-and-requirements.png" alt="1812 / 1813 Terms and Requirements" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1812-1813-terms-and-requirements.png')">
+            </div>
+          </figure>
+
+          <h4 class="font-display text-xl sm:text-2xl font-bold text-ink pt-2">
+            The Economics of Boarding: Silver Spoons and Towels
+          </h4>
+
+          <div class="sidenote-wrapper">
+            <p>
+              The financial terms of the school immediately establish the social status of its clientele. Board and tuition started at 30 guineas per annum for boys under ten, and 35 guineas for those above ten, rising to 40 guineas by 1813. In an era when a skilled Welsh artisan or collier earned between £30 and £50 a year, spending 35 to 40 guineas per boy—before factoring in laundry, books, and extras—placed the school firmly out of reach for ordinary townspeople. The pupils were the sons of the regional gentry, coal and iron masters, affluent Bristol and Newport merchants, shipowners, and senior clergy.
+            </p>
+            <div class="sidenote">
+              <strong>Social Stratification:</strong> At 35–40 guineas a year (plus extras), boarding a single boy cost roughly the entire annual income of a skilled Welsh collier or artisan.
+            </div>
+          </div>
+
+          <p>
+            The advertisements repeatedly emphasised that each young gentleman had a bed to himself. This was a vital selling point in the early nineteenth century, when communal bed-sharing was still widespread in standard boarding establishments and posed severe hygiene and health risks.
+          </p>
+
+          <p>
+            Furthermore, every boarder was required to pay an entrance fee of one guinea and provide six towels and a silver table spoon, which remained the property of the school upon the pupil leaving. Borrowed from prestigious English public schools, this custom prevented the cross-contamination of domestic linens, fostered genteel dining etiquette, and accumulated a valuable cache of solid silver cutlery that enhanced the material status of the academy's dining hall.
+          </p>
+
+          <p>
+            While McCarthy and Davis directed academic instruction, the domestic department was supervised by Mrs Ann McCarthy, who had charge of the health, personal cleanliness, linen, and dietary regimen of up to thirty resident boarders.
+          </p>
+        </div>
+
+        <!-- Tragedy in the Dormitory -->
+        <div class="pt-6 space-y-5 border-t border-parchment-200">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-ink">
+            Tragedy in the Dormitory: The Latin Elegy for James Beavan (1814)
+          </h3>
+
+          <p>
+            Behind the dignified prospectuses, the boarding academy was not immune to personal tragedy. In May 1814, seventeen-year-old pupil <strong>James Beavan</strong>, a promising youth from an affluent local family, contracted tuberculosis (<em>consumption</em>) and died within the schoolhouse.
+          </p>
+
+          <p>
+            Grief-stricken, Callaghan McCarthy composed a formal funeral elegy of sixteen elegiac couplets (thirty-two lines of classical Latin verse), published under his initials <em>“C. M‘C.”</em> in the regional press<a href="#fn-5" id="ref-5" class="fn-ref">5</a>. The poem provides an intimate glimpse into the schoolroom community, capturing the bedside vigil of McCarthy, his staff, and the <em>“throng of boys”</em> (<em>puerilis turba</em>) praying as their companion passed away.
+          </p>
+
+          <!-- Exhibit: 1814-latin-poem-james-beavan.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">Latin Poem from Newspaper</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">May 1814 Elegy</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1814-latin-poem-james-beavan.png', 'May 1814 Latin Funeral Elegy for James Beavan — Composed by C. M‘C.')">
+              <img src="images/1814-latin-poem-james-beavan.png" alt="Latin Poem from Newspaper for James Beavan, 1814" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1814-latin-poem-james-beavan.png')">
+            </div>
+          </figure>
+
+          <!-- 16-Couplet Side-by-Side Latin & English Table -->
+          <div class="my-6 overflow-x-auto rounded-lg border border-parchment-300 bg-white shadow-sm">
+            <table class="w-full text-left border-collapse">
+              <thead class="bg-parchment-100 border-b border-parchment-300 font-sans text-[11px] uppercase tracking-wider text-ink font-semibold">
+                <tr>
+                  <th class="py-3 px-4 w-1/2 border-r border-parchment-200">Original Latin Text (<em>C. M'C.</em>)</th>
+                  <th class="py-3 px-4 w-1/2">English Translation</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-parchment-200 font-serif text-sm sm:text-base text-ink-light leading-relaxed">
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Fundite lugubres, puerilis turba, querelas;<br>&nbsp;&nbsp;&nbsp;&nbsp;Tristi sorte comes nam miserandus obiit.</td>
+                  <td class="py-3 px-4">Pour forth your mournful plaints, O throng of boys!<br>&nbsp;&nbsp;&nbsp;&nbsp;For by a sad lot your pitiable companion has died.</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Flebilis ante diem, periit florente juventa<br>&nbsp;&nbsp;&nbsp;&nbsp;(Heu cur tam rigidam fata tulere necem?)</td>
+                  <td class="py-3 px-4">Much wept before his day, he perished in flowering youth—<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>(Alas, why did the Fates bring so harsh a death?)</em></td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Pulcher, et ornatus quantis virtutibus, Eheu!<br>&nbsp;&nbsp;&nbsp;&nbsp;Comp’erant pietas, laudis amorque sinum;</td>
+                  <td class="py-3 px-4">Fair was he, and adorned with what great virtues—alas!<br>&nbsp;&nbsp;&nbsp;&nbsp;Piety and love of praise had filled his breast;</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Et sociis dilectus erat, carusque magistris,<br>&nbsp;&nbsp;&nbsp;&nbsp;Simplex, ingenuus, moribus atque probis;</td>
+                  <td class="py-3 px-4">And he was beloved by his companions, and dear to his masters,<br>&nbsp;&nbsp;&nbsp;&nbsp;Simple, noble-hearted, and of upright character;</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Comis et urbanus, docilis, sincerus, honestus,<br>&nbsp;&nbsp;&nbsp;&nbsp;Omne nefas fugiens, omne bonumque petens;</td>
+                  <td class="py-3 px-4">Courteous and refined, teachable, sincere, and honourable,<br>&nbsp;&nbsp;&nbsp;&nbsp;Fleeing all wrongdoing, and seeking every good;</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Heu! cur summa nequit virtus depellere fatum?<br>&nbsp;&nbsp;&nbsp;&nbsp;Heu! cur non parcit sors inamœna bonis?</td>
+                  <td class="py-3 px-4">Alas! Why cannot the highest virtue ward off fate?<br>&nbsp;&nbsp;&nbsp;&nbsp;Alas! Why does harsh fortune not spare the good?</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Quantos ille tulit patienti corde dolores!<br>&nbsp;&nbsp;&nbsp;&nbsp;Heu! quoties juvenes ingemuere pii!</td>
+                  <td class="py-3 px-4">How great the pains he bore with a patient heart!<br>&nbsp;&nbsp;&nbsp;&nbsp;Alas, how often did his pious young companions groan!</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Lurida languenti tabes confecerat artus,<br>&nbsp;&nbsp;&nbsp;&nbsp;Membraque vis omnis fugerat, ora color;</td>
+                  <td class="py-3 px-4">A ghastly wasting sickness (<em>consumption</em>) had consumed his languishing limbs,<br>&nbsp;&nbsp;&nbsp;&nbsp;All strength had fled his body, all colour from his face;</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Inclyta quam dederat sic spes evanuit omnis,<br>&nbsp;&nbsp;&nbsp;&nbsp;Ut tener exusta flosculus aret humo—</td>
+                  <td class="py-3 px-4">Thus vanished all the glorious hope he had promised,<br>&nbsp;&nbsp;&nbsp;&nbsp;Even as a tender flower withers upon the parched earth—</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Attamen haud vani gemitus, lacrymæve ciendæ—<br>&nbsp;&nbsp;&nbsp;&nbsp;Quam donet miseris, discite Christus opem—</td>
+                  <td class="py-3 px-4">And yet, no empty groans or tears are to be stirred up:<br>&nbsp;&nbsp;&nbsp;&nbsp;Learn what aid Christ gives unto the afflicted!</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Christe, mei, dixit moriens, miserere dolentis;<br>&nbsp;&nbsp;&nbsp;&nbsp;Tu mihi jam turris firma salutis eris.</td>
+                  <td class="py-3 px-4"><em>“O Christ,”</em> the dying youth cried, <em>“have mercy upon my suffering;</em><br>&nbsp;&nbsp;&nbsp;&nbsp;<em>Thou shalt now be to me a strong tower of salvation.</em></td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">In te certa fides animam jam sustinet ægram,<br>&nbsp;&nbsp;&nbsp;&nbsp;In te spes omnis, tu mihi perfugium—</td>
+                  <td class="py-3 px-4"><em>In Thee sure faith now sustains my sick soul,</em><br>&nbsp;&nbsp;&nbsp;&nbsp;<em>In Thee is all my hope, Thou art my refuge—</em></td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Adveniat cita mors—Heu! luctum mittite amici;<br>&nbsp;&nbsp;&nbsp;&nbsp;Nam mors est gratus, portus et ara piis!</td>
+                  <td class="py-3 px-4"><em>Let swift death come!—Alas, cast away grief, my friends,</em><br>&nbsp;&nbsp;&nbsp;&nbsp;<em>For unto the pious, death is a welcome harbour and altar!”</em></td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">O vos, qui mæsti lecto morientis adestis,<br>&nbsp;&nbsp;&nbsp;&nbsp;Pellite mœrores, jungite et, oro, preces—</td>
+                  <td class="py-3 px-4">O you, who stand mournfully by the bed of the dying,<br>&nbsp;&nbsp;&nbsp;&nbsp;Banish your sorrow, and join, I pray, your prayers:</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Este pii, et vitæ memores estote futuræ;<br>&nbsp;&nbsp;&nbsp;&nbsp;Et tangat mentes religionis amor;</td>
+                  <td class="py-3 px-4">Be ye pious, and mindful of the life to come;<br>&nbsp;&nbsp;&nbsp;&nbsp;And may the love of religion touch your minds;</td>
+                </tr>
+                <tr class="hover:bg-parchment-50 transition">
+                  <td class="py-3 px-4 border-r border-parchment-200 italic">Detque Deus vobis justorum morte perire<br>&nbsp;&nbsp;&nbsp;&nbsp;Sperate et mecum gaudia pura poli!</td>
+                  <td class="py-3 px-4">And may God grant that you die the death of the righteous—<br>&nbsp;&nbsp;&nbsp;&nbsp;Hope, and share with me the pure joys of the heavens!</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            The poem stands as undeniable physical proof of McCarthy’s classical scholarship, his pastoral care for his boarders, and his deep, articulate Christian piety.
+          </p>
+        </div>
+
+        <!-- Partnership Dissolution and Mounting Debts -->
+        <div class="pt-6 space-y-5 border-t border-parchment-200">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-ink">
+            Partnership Dissolution and Mounting Debts (1818–1822)
+          </h3>
+
+          <p>
+            Operating a premier academy required immense capital. In the economic depression that followed the Napoleonic Wars, financial pressures began to fracture the partnership.
+          </p>
+
+          <!-- Exhibit: 1818-01-12-partnership-dissolution.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">12 January 1818 Dissolution Notice</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">London Gazette</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1818-01-12-partnership-dissolution.png', '12 January 1818 Dissolution Notice — Termination of McCarthy &amp; Davis partnership')">
+              <img src="images/1818-01-12-partnership-dissolution.png" alt="12 January 1818 Dissolution Notice" class="w-full max-h-80 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1818-01-12-partnership-dissolution.png')">
+            </div>
+          </figure>
+
+          <p>
+            On 12 January 1818, McCarthy and Davis formally dissolved their partnership. A legal notice published in the <em>London Gazette</em><a href="#fn-6" id="ref-6" class="fn-ref">6</a> and regional newspapers announced that the joint enterprise was terminated, with McCarthy assuming sole responsibility for the school and all its liabilities. The primary burden was the £4,000 incurred in erecting the premises, leaving McCarthy heavily indebted to his former partner for his share of the capital outlay.
+          </p>
+
+          <p>
+            In December 1821, McCarthy published a detailed statement reminding patrons of the £4,000 expended on the property. By 1822, legal pressure from Richard Davis forced McCarthy to execute a formal power of attorney to manage and settle Davis's mortgage demands. Though the school remained academically respected, McCarthy was trapped under a mountain of building debt that would shadow the property for the rest of his life.
+          </p>
+        </div>
+
+        <!-- The "Bread Slander" and Abrupt Retirement -->
+        <div class="pt-6 space-y-5 border-t border-parchment-200">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-ink">
+            The “Bread Slander” and Abrupt Retirement (1828–1829)
+          </h3>
+
+          <p>
+            Running an elite boarding school also exposed McCarthy to local gossip and commercial rivalry. In the late 1820s, malicious whispers began circulating in Newport alleging that the master was starving his scholars.
+          </p>
+
+          <!-- Exhibit: 1829-03-21-bread-slander-rebuttal.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">21 March 1829 Bristol Mirror Advert</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Public Rebuttal</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1829-03-21-bread-slander-rebuttal.png', '21 March 1829 Bristol Mirror Advert — Callaghan McCarthy’s rebuttal of the bread slander')">
+              <img src="images/1829-03-21-bread-slander-rebuttal.png" alt="21 March 1829 Bristol Mirror Advert" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1829-03-21-bread-slander-rebuttal.png')">
+            </div>
+          </figure>
+
+          <p>
+            Furious at this attack on his reputation, McCarthy placed a blistering public rebuttal in the <em>Bristol Mirror</em> on 21 March 1829<a href="#fn-7" id="ref-7" class="fn-ref">7</a>, branding the whispering campaign an <em>“absurd yet villanous tale”</em>:
+          </p>
+
+          <blockquote class="my-6 pl-5 pr-4 py-4 bg-parchment-100/70 border-l-4 border-vermilion rounded-r-md font-serif italic text-base sm:text-lg text-ink-light leading-relaxed">
+            “Mr. M‘C. has but very lately heard, with painful astonishment and surprise, for the first, and, he trusts, the last time, that in one particular place only, and at one particular time, a report has been propagated to the effect that his pupils are not allowed a sufficient quantity of bread!!! Really, after 18 years’ successful experience in this place, and 17 years previously as principal teacher in classical schools of the first description... Mr. M‘C. cannot now descend to a more formal or more elaborate refutation of this absurd yet villanous tale, than to add to its manifestly gross improbability his solemn asseveration of its utter and absolute falsehood. What say the plump and florid cheeks—the rosy hue of health—the rapid and athletic growth of those who now surround him, as well as of those few who left him at the last recess? Would that parents could always devise and adopt a regimen that might produce such happy results!”
+          </blockquote>
+
+          <p>
+            In an amusing historical irony, the very ground where McCarthy had to defend his bread rations would become the site of Alfred Bland's massive steam bakery fifty years later.
+          </p>
+
+          <!-- Exhibit: 1829-retirement-denial-and-handover.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">June 1829 Denial Advert &amp; 28 November 1829 Handover Notice</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">1829 Transition</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1829-retirement-denial-and-handover.png', 'June 1829 Retirement Denial &amp; 28 November 1829 Handover to Rev. Thomas Boddington')">
+              <img src="images/1829-retirement-denial-and-handover.png" alt="June 1829 Denial Advert and 28 November 1829 Handover Notice" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1829-retirement-denial-and-handover.png')">
+            </div>
+          </figure>
+
+          <p>
+            The strain, however, was taking its toll. In June 1829, fighting further rumours, McCarthy published a notice insisting that <em>“the report of his intended retirement is groundless.”</em>
+          </p>
+
+          <p>
+            Yet just five months later, failing health evidently overwhelmed him. On 28 November 1829, McCarthy abruptly surrendered his life’s work, publishing a poignant farewell to his scholars and announcing that he was handing the academy over to a <em>“Scholar and Divine.”</em>
+          </p>
+
+          <p>
+            Immediately beneath McCarthy's note, the Reverend Thomas Boddington, A.M., Curate of Newport, announced that he had taken possession of the <em>“School House”</em> to conduct his own classical seminary. After nineteen years, Callaghan McCarthy’s tenure as active headmaster had come to an end.
+          </p>
+        </div>
+      </section>
+
+      <!-- Editorial Fleuron Break -->
+      <div class="pt-12 pb-8 relative flex items-center justify-center" aria-hidden="true">
+        <div class="w-full max-w-[280px] sm:max-w-[360px] h-px bg-gradient-to-r from-transparent via-parchment-400 to-transparent"></div>
+        <div class="absolute bg-[#fcfaf6] px-3 flex items-center justify-center">
+          <svg class="w-3.5 h-3.5 block text-antiqueGold" viewBox="0 -3 24 24" fill="currentColor">
+            <path d="M12 2C11.5 4 10 6 8 7C6 8 4 8.5 2 9C4 9.5 6 10 8 11C10 12 11.5 14 12 16C12.5 14 14 12 16 11C18 10 20 9.5 22 9C20 8.5 18 8 16 7C14 6 12.5 4 12 2Z"/>
+            <circle cx="12" cy="9" r="1.5" class="text-vermilion" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- SECTION IV: CHANGE OF OWNERSHIP AND SPATIAL PARTITIONING -->
+      <section class="space-y-5 sm:space-y-6">
+        <div class="pb-3 mb-6 border-b border-parchment-300">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="h-0.5 w-6 bg-vermilion"></span>
+            <span class="font-header text-xs sm:text-sm tracking-[0.2em] text-vermilion font-bold uppercase">Section IV</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-ink leading-tight">
+            Change of Ownership and Spatial Partitioning (1831–1849)
+          </h2>
+        </div>
+
+        <p>
+          The handover of the academy to the Reverend Thomas Boddington in November 1829 marked the beginning of two decades of profound architectural and social transformation. Callaghan McCarthy had retired from active teaching, but he and his wife Ann remained closely tied to the property, residing in a domestic dwelling within the grounds while Boddington conducted his school in the main building.
+        </p>
+
+        <!-- Three Probate & Burial Exhibits -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+          <figure class="p-3.5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm flex flex-col">
+            <div class="mb-2 border-b border-parchment-300 pb-1.5">
+              <h4 class="font-display text-base font-bold text-ink">Holograph Will</h4>
+              <span class="font-sans text-[10px] text-ink-muted uppercase tracking-wider">LL/1831/97 W</span>
+            </div>
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group flex-1 flex items-center justify-center" onclick="openLightbox('images/1831-callaghan-mccarthy-will.png', 'Callaghan McCarthy’s Holograph Will (LL/1831/97 W)')">
+              <img src="images/1831-callaghan-mccarthy-will.png" alt="Callaghan McCarthy's Holograph Will (LL/1831/97 W)" class="w-full h-48 object-cover group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1831-callaghan-mccarthy-will.png')">
+            </div>
+          </figure>
+
+          <figure class="p-3.5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm flex flex-col">
+            <div class="mb-2 border-b border-parchment-300 pb-1.5">
+              <h4 class="font-display text-base font-bold text-ink">Llandaff Probate Grant</h4>
+              <span class="font-sans text-[10px] text-ink-muted uppercase tracking-wider">LL/1831/97</span>
+            </div>
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group flex-1 flex items-center justify-center" onclick="openLightbox('images/1831-llandaff-probate-deposition.png', 'Llandaff Consistory Court Probate Grant &amp; Sworn Deposition (LL/1831/97)')">
+              <img src="images/1831-llandaff-probate-deposition.png" alt="Llandaff Consistory Court Probate Grant and Sworn Deposition (LL/1831/97)" class="w-full h-48 object-cover group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1831-llandaff-probate-deposition.png')">
+            </div>
+          </figure>
+
+          <figure class="p-3.5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm flex flex-col">
+            <div class="mb-2 border-b border-parchment-300 pb-1.5">
+              <h4 class="font-display text-base font-bold text-ink">St Woolos Grave B56</h4>
+              <span class="font-sans text-[10px] text-ink-muted uppercase tracking-wider">Headstone Inscription</span>
+            </div>
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group flex-1 flex items-center justify-center" onclick="openLightbox('images/st-woolos-grave-b56-headstone.png', 'St Woolos Headstone Inscription (Grave B56) — “Calla[ghan] McCarthy, Gent.”')">
+              <img src="images/st-woolos-grave-b56-headstone.png" alt="St Woolos Headstone Inscription (Grave B56)" class="w-full h-48 object-cover group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/st-woolos-grave-b56-headstone.png')">
+            </div>
+          </figure>
+        </div>
+
+        <p>
+          On 10 February 1831, aware that his health was rapidly failing, McCarthy drafted his last will and testament<a href="#fn-8" id="ref-8" class="fn-ref">8</a>, bequeathing his entire estate and all leasehold interests unconditionally to his wife, Ann. Seven months later, on Saturday, 3 September 1831, Callaghan McCarthy passed away at the age of fifty-nine. He was buried on 8 September in St Woolos churchyard, where his surviving headstone at grave location B56 formally recorded him with the gentlemanly status of <em>“Calla[ghan] McCarthy, Gent.”</em>
+        </p>
+
+        <div class="sidenote-wrapper">
+          <p>
+            McCarthy’s passing was immediately followed by a bitter public scandal. In his final days, the Vicar of St Woolos, the Reverend William Isaacson, had directed Curate Boddington to attend the dying schoolmaster and administer the Holy Sacrament. Boddington refused. On the Sunday following McCarthy's funeral, Boddington mounted the pulpit at St Woolos and delivered a provocative sermon condemning deathbed communions, arguing that individuals often demanded the sacrament without a true understanding of its solemn nature, treating it merely as a passport to heaven.
+          </p>
+          <div class="sidenote">
+            <strong>Civic Outcry:</strong> Future Chartist leader <strong>John Frost</strong> helped lead public protests at the King’s Head Hotel against Curate Boddington’s refusal of the deathbed sacrament.
+          </div>
+        </div>
+
+        <p>
+          The sermon ignited fierce indignation across Newport. Radical reformers, led by draper <strong>John Frost</strong>, condemned Boddington's conduct as cruel and uncharitable toward an esteemed scholar whose orthodox piety had been demonstrated throughout his twenty years in the town. Frost and other prominent citizens organised public meetings of protest at the King’s Head Hotel and submitted a formal complaint to the Bishop of Llandaff. Although Boddington published an elaborate theological defence in the <em>Monmouthshire Merlin</em><a href="#fn-9" id="ref-9" class="fn-ref">9</a>, the public backlash made his position in the town untenable, forcing him to abandon the schoolhouse.
+        </p>
+
+        <!-- Exhibit: 1831-1832-auction-and-hunt-advert.png -->
+        <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">Winter 1831–1832 Davis Auction Notice / June 1832 Hunt Advert</h4>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">1831–1832 Transition</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1831-1832-auction-and-hunt-advert.png', 'Winter 1831–1832 Davis Auction Notice &amp; June 1832 Catherine &amp; Emily Hunt Seminary Advert')">
+            <img src="images/1831-1832-auction-and-hunt-advert.png" alt="Winter 1831–1832 Davis Auction Notice and June 1832 Hunt Advert" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1831-1832-auction-and-hunt-advert.png')">
+          </div>
+        </figure>
+
+        <p>
+          Following Boddington's departure, Ann McCarthy proved her husband's will in the Diocesan Consistory Court at Llandaff on 25 October 1831, swearing the gross estate under £1,500. However, the crushing mortgage liabilities originally incurred during the £4,000 building campaign in 1811 remained unsettled. In the winter of 1831 and 1832, auctioneer Thomas Davis advertised the premises to let or for sale, noting that the property was peculiarly adapted for educational or commercial purposes requiring extensive space, and mentioning that a small separate house stood alongside the main academy.
+        </p>
+
+        <p>
+          In June 1832, Mrs Catherine Hunt and her daughter Emily stepped into the breach, announcing the opening of a ladies' boarding seminary. Their advertisement explicitly identified the location, stating that their new establishment was held at <em>“the residence of the late Mr. M'Carthy, Commercial Street.”</em>
+        </p>
+
+        <p>
+          The spacious nature of the former schoolhouse continued to serve the wider public. In December 1832, during the lively campaigning for the first parliamentary election following the Great Reform Act, the local press recorded a major political assembly of town electors taking place in a large room or hall upon these very premises. This confirmed that McCarthy's original institutional hall remained an essential community gathering space. The Hunts maintained their ladies' seminary here until late 1835, when they relocated their school to Stow Hill.
+        </p>
+
+        <!-- The Frontage Rebuilt -->
+        <div class="pt-6 space-y-5 border-t border-parchment-200">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-ink">
+            The Frontage Rebuilt: Herbert Williams and Thomas Waters
+          </h3>
+
+          <p>
+            The departure of the Hunt seminary in late 1835 left the owners with a large roadside property at a time when Commercial Street was rapidly evolving from a quiet residential turnpike into the premier retail street of the borough. In June 1836, chemist and druggist <strong>Herbert Williams</strong> announced that he had opened his new “Medical Hall” in Commercial Street.
+          </p>
+
+          <!-- Exhibit: 1836-07-auction-lots-1-and-2.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">July 1836 Auction Advert (Lots 1 &amp; 2 near the Parrot)</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">July 1836 Sale</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1836-07-auction-lots-1-and-2.png', 'July 1836 Auction Advert — Lots 1 &amp; 2 near the Parrot Inn')">
+              <img src="images/1836-07-auction-lots-1-and-2.png" alt="July 1836 Auction Advert (Lots 1 and 2 near the Parrot)" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1836-07-auction-lots-1-and-2.png')">
+            </div>
+          </figure>
+
+          <p>
+            Just weeks later, a property auction notice published in July 1836 revealed the extensive architectural work underway along the street frontage. The notice advertised two adjoining properties situated in the best part of Commercial Street, near the Parrot Inn. Lot 1 was described as a large, substantially built dwelling-house and shop in the occupation of Herbert Williams, chemist. Lot 2 was an adjoining dwelling-house that was void and recorded as <em>“not being quite finished.”</em> The advertisement emphasised that the premises comprised in both lots had <em>“recently been erected in the most substantial manner”</em> and fitted up at considerable expense.
+          </p>
+
+          <p>
+            In the terminology of early-nineteenth-century building and auction sales, when an older institutional shell was gutted, fitted with new party walls, re-fronted, and adapted for modern shopfronts, it was standard practice to describe the work as a recent erection. This July 1836 notice captures the physical transition in real time: Williams had completed and occupied his chemist shop at No. 154, while the northern half of the frontage at No. 155 was still in the hands of carpenters and plasterers.
+          </p>
+
+          <!-- Exhibit: 1838-property-sale-williams-waters.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">1838 Property Sale Notice (Williams, Waters, and Rear Tenements)</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">1838 Deed Notice</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1838-property-sale-williams-waters.png', '1838 Property Sale Notice — Herbert Williams (No. 154), Thomas Waters (No. 155), and rear tenements')">
+              <img src="images/1838-property-sale-williams-waters.png" alt="1838 Property Sale Notice (Williams, Waters, and Rear Tenements)" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1838-property-sale-williams-waters.png')">
+            </div>
+          </figure>
+
+          <p>
+            By 1838, a subsequent property sale notice confirmed that the structural conversion was fully settled. The street frontage was officially described as <strong>“two new buildings”</strong>, occupied respectively by Herbert Williams at No. 154 and solicitor <strong>Thomas Waters</strong> at No. 155.
+          </p>
+
+          <!-- Breakout Figure: Old Wesley Building Watercolour -->
+          <figure class="my-8 sm:my-12 -mx-4 sm:-mx-8 md:-mx-12 lg:-mx-20 p-0 sm:p-6 bg-[#f7f3ea] border-y sm:border border-parchment-300 rounded-none sm:rounded-xl shadow-none sm:shadow-md transition-all">
+            <div class="p-4 sm:p-0 sm:mb-3 sm:border-b sm:border-parchment-300 sm:pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">Old Wesley Building Watercolour (Radical Printer, Plate 11)</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Visual Record</span>
+            </div>
+
+            <div class="overflow-hidden rounded-none sm:rounded-lg border-0 sm:border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/old-wesley-building-watercolour.png', 'Old Wesley Building Watercolour (The Radical Printer, Plate 11) — Showing the reconstructed Georgian frontage at Nos. 154–155')">
+              <img src="images/old-wesley-building-watercolour.png" alt="Old Wesley Building Watercolour (Radical Printer, Plate 11)" class="w-full max-h-[540px] object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/old-wesley-building-watercolour.png')">
+            </div>
+
+            <figcaption class="p-4 sm:p-0 sm:mt-3 font-sans text-xs text-ink-muted leading-relaxed">
+              <strong class="text-ink font-semibold">Architectural Elevation:</strong> Immediately south (left) of the Wesleyan Chapel stands the three-storey classical Georgian block reconstructed between 1836 and 1838 for Herbert Williams and Thomas Waters, terminating at the covered archway leading into the rear court.
+            </figcaption>
+          </figure>
+
+          <p>
+            This pair of newly fronted properties is clearly identifiable in surviving visual records. In the period illustration of the adjoining Wesleyan Chapel (depicted as the <em>Old Wesley Building</em> in <em>The Radical Printer</em>), the building standing immediately to the left, or south, of the chapel is a handsome three-storey classical Georgian block finished in smooth render, featuring a flat roof parapet, rectangular sash windows, a first-floor bay window, and two commercial shop units at street level. This elevation represents the very street frontage reconstructed between 1836 and 1838 for Williams and Waters, terminating at the covered archway leading into the rear court.
+          </p>
+        </div>
+
+        <!-- The Rear Enclave -->
+        <div class="pt-6 space-y-5 border-t border-parchment-200">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-ink">
+            The Rear Enclave: The Long Room and Woodbine Cottage
+          </h3>
+
+          <p>
+            While the roadside frontage facing Commercial Street was divided into modern retail and professional premises, the deep courtyard behind remained intact.
+          </p>
+
+          <!-- Exhibit: 1837-advert-large-light-room.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">1837 Advert to Let (Williams' 30-to-40-Foot Room)</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">1837 Letting</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1837-advert-large-light-room.png', '1837 Advert to Let — House with a “Large Light Room, between 30 and 40 feet long”')">
+              <img src="images/1837-advert-large-light-room.png" alt="1837 Advert to Let (Williams' 30-to-40-Foot Room)" class="w-full max-h-80 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1837-advert-large-light-room.png')">
+            </div>
+          </figure>
+
+          <p>
+            In 1837, Herbert Williams placed an advertisement in the regional press offering to let a house to the rear. The notice described an extraordinary property: a house containing two sitting rooms, two bedrooms, and a <strong>“Large Light Room, between 30 and 40 feet long.”</strong> In early-nineteenth-century Newport, where domestic rooms rarely exceeded twelve to fifteen feet in width, a residential property containing a hall forty feet long was an absolute anomaly. This large room was Callaghan McCarthy’s original 1811 schoolroom hall, preserved behind the new chemist shop.
+          </p>
+
+          <div class="sidenote-wrapper">
+            <p>
+              Further up the rising ground of the plot, stretching back towards Stow Hill, lay an elevated garden residence known as <strong>Woodbine Cottage</strong>. Throughout the 1830s and 1840s, this secluded house served as a home for prominent clergymen and professional men. In February 1830, a birth notice recorded the lady of the Reverend William Isaacson, Vicar of St Woolos, giving birth to a son at Woodbine Cottage. In December 1836, the Reverend James Francis, Minister of St Paul's Church, announced that he had enlarged his house at Woodbine Cottage in order to receive four young gentlemen as private boarding pupils to prepare them for public schools and universities.
+            </p>
+            <div class="sidenote">
+              <strong>Woodbine Cottage:</strong> Despite the modest name, the 1856 Llanarth Estate notice reveals a seven-bedroom gentleman’s villa with two kitchens, cellarage, and extensive terraced gardens.
+            </div>
+          </div>
+
+          <p>
+            By 1838, an advertisement to let Woodbine Cottage instructed prospective tenants to apply on the premises or to Thomas Waters, the solicitor occupying the new front office at No. 155.
+          </p>
+
+          <!-- Exhibit: 1856-woodbine-cottage-advert.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">1856 Advert to Let or Sell Woodbine Cottage</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Llanarth Estate Office</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1856-woodbine-cottage-advert.png', '1856 Advert to Let or Sell Woodbine Cottage — Llanarth Estate Office')">
+              <img src="images/1856-woodbine-cottage-advert.png" alt="1856 Advert to Let or Sell Woodbine Cottage" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1856-woodbine-cottage-advert.png')">
+            </div>
+          </figure>
+
+          <p>
+            The true architectural scale of Woodbine Cottage was revealed in an 1856 advertisement published by the Llanarth Estate Office. The notice described a substantial gentleman’s villa situated between Stow Hill and Commercial Street, containing an excellent dining room and drawing room, three large family bedrooms and a dressing room, four servants' bedrooms, two kitchens, extensive cellarage, and a large private garden. Woodbine Cottage was not a modest country dwelling, but a sizable seven-bedroom gentleman's residence commanding the elevated ground overlooking the lower courtyard.
+          </p>
+        </div>
+
+        <!-- Ann McCarthy in Caerleon -->
+        <div class="pt-6 space-y-5 border-t border-parchment-200">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-ink">
+            Ann McCarthy in Caerleon and the 1849 Clearance Sale
+          </h3>
+
+          <p>
+            While the commercial frontage was occupied by Williams and Waters and Woodbine Cottage housed gentlemen tenants, what became of Callaghan McCarthy's widow?
+          </p>
+
+          <p>
+            Following the financial restructuring of the estate in the 1830s, Ann McCarthy moved out of Newport across the River Usk to <strong>Caerleon (Ultra Pontem)</strong>, residing in Christchurch parish with her sister, Margaret Broughton. The decennial census of 6 June 1841 records Ann living in Ultra Pontem with Margaret<a href="#fn-10" id="ref-10" class="fn-ref">10</a>. Moving out of Newport allowed Ann to rely on family support, particularly as she became afflicted with severe paralysis, while continuing to draw rental income from subletting her retained property interests in Newport.
+          </p>
+
+          <!-- Exhibit: 1849-09-mccarthy-clearance-auction.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">30 August / 6 September 1849 Auction Notice</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Monmouthshire Merlin</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1849-09-mccarthy-clearance-auction.png', '30 August / 6 September 1849 Auction Notice — Mrs. M‘Carthy’s household effects and library')">
+              <img src="images/1849-09-mccarthy-clearance-auction.png" alt="30 August / 6 September 1849 Auction Notice" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1849-09-mccarthy-clearance-auction.png')">
+            </div>
+          </figure>
+
+          <p>
+            Ann maintained her legal and domestic connection to Commercial Street for eighteen years after Callaghan's death. This tenure was brought to a formal close in late summer 1849. An auction notice published in the <em>Monmouthshire Merlin</em> on 30 August 1849<a href="#fn-11" id="ref-11" class="fn-ref">11</a> announced that on Thursday, 6 September, auctioneers Messrs. Graham would conduct an unreserved public sale of household furniture and personal effects:
+          </p>
+
+          <blockquote class="my-6 pl-5 pr-4 py-3.5 bg-parchment-100/70 border-l-4 border-antiqueGold rounded-r-md font-serif italic text-base sm:text-lg text-ink-light leading-relaxed">
+            “…on the premises, at her late residence, adjoining Woodbine Cottage, Commercial Street, Newport, the property of Mrs. M'Carthy, who has declined housekeeping…”
+          </blockquote>
+
+          <p>
+            The auction inventory provides a vivid catalogue of the domestic belongings of the former master and matron of the Newport School. Sold off on the premises were four-post and tent bedsteads, feather beds, horse-hair chairs, a mahogany dining table, card and tea tables, chimney glasses in gilt frames, an eight-day mahogany clock, and nine ancient pictures in gilt frames.
+          </p>
+
+          <p>
+            Most poignantly, the catalogue included <strong>“a small Library of Books, which includes a few classical works.”</strong> These classical volumes were the personal working library of Callaghan McCarthy, preserved by his widow beside Woodbine Cottage for nearly two decades after his death. At approximately eighty years of age, Ann finally relinquished housekeeping in Newport, selling off the heavy Regency furnishings and books to live out her remaining years in Caerleon, where the 1851 census recorded her as an eighty-two-year-old invalid widow supported by a resident nurse-companion and house servant.
+          </p>
+        </div>
+      </section>
+
+      <!-- Editorial Fleuron Break -->
+      <div class="pt-12 pb-8 relative flex items-center justify-center" aria-hidden="true">
+        <div class="w-full max-w-[280px] sm:max-w-[360px] h-px bg-gradient-to-r from-transparent via-parchment-400 to-transparent"></div>
+        <div class="absolute bg-[#fcfaf6] px-3 flex items-center justify-center">
+          <svg class="w-3.5 h-3.5 block text-antiqueGold" viewBox="0 -3 24 24" fill="currentColor">
+            <path d="M12 2C11.5 4 10 6 8 7C6 8 4 8.5 2 9C4 9.5 6 10 8 11C10 12 11.5 14 12 16C12.5 14 14 12 16 11C18 10 20 9.5 22 9C20 8.5 18 8 16 7C14 6 12.5 4 12 2Z"/>
+            <circle cx="12" cy="9" r="1.5" class="text-vermilion" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- SECTION V: MCCARTHY'S COURT -->
+      <section class="space-y-5 sm:space-y-6">
+        <div class="pb-3 mb-6 border-b border-parchment-300">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="h-0.5 w-6 bg-vermilion"></span>
+            <span class="font-header text-xs sm:text-sm tracking-[0.2em] text-vermilion font-bold uppercase">Section V</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-ink leading-tight">
+            McCarthy’s Court
+          </h2>
+        </div>
+
+        <p>
+          While the frontage facing Commercial Street had been transformed into modern retail shops, the land behind was undergoing its own dramatic evolution. By the late 1830s, the former playgrounds, domestic yards, and outbuildings of Callaghan McCarthy's academy were being adapted into high-density cottage dwellings.
+        </p>
+
+        <!-- Exhibit: 1838-rear-tenements-notice.png -->
+        <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">1838 Property Sale Notice (Williams, Waters, and Four Tenements)</h4>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Rear Cottages</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1838-rear-tenements-notice.png', '1838 Property Sale Notice — Four messuages or tenements with gardens behind Williams and Waters')">
+            <img src="images/1838-rear-tenements-notice.png" alt="1838 Property Sale Notice (Williams, Waters, and Four Tenements)" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1838-rear-tenements-notice.png')">
+          </div>
+        </figure>
+
+        <p>
+          The 1838 property sale notice provides the first detailed snapshot of this transition. Directly behind the two new front buildings occupied by Herbert Williams and Thomas Waters, the notice recorded four messuages or tenements with gardens attached. These four cottages were already tenanted, occupied respectively by Benjamin Haston (Horton), Charles Williams, Jane Waters, and James Price.
+        </p>
+
+        <!-- Exhibit: 1841-census-mccarthys-court.png -->
+        <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">1841 Census Returns (HO 107/751/19)</h4>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">6 June 1841</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1841-census-mccarthys-court.png', '1841 Census Returns (HO 107/751/19) — First official enumeration of McCarthy’s Court')">
+            <img src="images/1841-census-mccarthys-court.png" alt="1841 Census Returns (HO 107/751/19)" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1841-census-mccarthys-court.png')">
+          </div>
+        </figure>
+
+        <p>
+          Three years later, the decennial census taken on 6 June 1841 confirmed that this emerging cluster of dwellings had officially acquired the name <strong>McCarthy’s Court</strong><a href="#fn-12" id="ref-12" class="fn-ref">12</a>. The census enumerator’s walk order mapped the physical layout of the block with remarkable precision. Moving northwards along the west side of Commercial Street, the enumerator recorded surgeon Jehoiada Brewer at No. 153 before turning off the pavement, passing under a covered archway, and stepping into the private lane:
+        </p>
+
+        <!-- Archival Enumerator Walk Layout -->
+        <div class="my-6 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm overflow-x-auto">
+          <div class="mb-2 pb-2 border-b border-parchment-300 flex items-center justify-between">
+            <span class="font-header text-[11px] uppercase tracking-widest text-vermilion font-bold">1841 Enumerator Walk Order</span>
+            <span class="font-sans text-[10px] text-ink-muted uppercase tracking-wider">HO 107/751/19</span>
+          </div>
+          <pre class="font-mono text-xs sm:text-sm text-ink leading-relaxed whitespace-pre"><code>[Commercial Street Frontage]
+  No. 153: Jehoiada Brewer (Surgeon) &amp; household
+[Enters covered archway into the court]
+  McCarthy's Court:
+    - Charles Watkins (Tailor) &amp; family
+    - Evan John (Labourer)
+    - Charles Smith (Merchant)
+    - William Webber (Fireman)
+    - Rachel Dallimore (Independent)
+    - Thomas Hearn (Blacksmith)
+    - John James (Labourer) &amp; Elias James (Smith)
+    - Daniel Hopkins (Labourer)
+    - Charles Williams (Mason) &amp; family
+    - Benjamin Horton (Sawyer) &amp; family
+[Returns to Commercial Street Frontage]
+  No. 154: Herbert Williams (Chemist &amp; Druggist)
+  No. 155: Thomas Morgan Llewellin (Solicitor)
+  Nos. 156–158: Wesleyan Methodist Chapel</code></pre>
+        </div>
+
+        <p>
+          The 1841 return reveals a vibrant community of forty-five residents across eight separate working households. Crucially, the occupants included sawyer Benjamin Horton and mason Charles Williams—the very tenants named in the 1838 deed. The court had not been laid out as speculative back-to-back slums, but had grown out of the adaptation of the academy's domestic wings, workshops, and four original rear tenements.
+        </p>
+
+        <p>
+          Over the middle decades of the nineteenth century, the spelling of the name began to shift in popular and official usage. On the Ordnance Survey town plan of <strong>1882</strong> and the Charles Goad Fire Insurance Plan of <strong>1888</strong>, the lane was engraved as <strong>Macarthy’s Court</strong>. This slight variation reflected the common phonetic pronunciation of the name in Victorian Newport, where the traditional Irish prefix <em>Mc</em> was routinely transcribed phonetically as <em>Mac</em>.
+        </p>
+
+        <!-- Exhibit: mccarthys-court-street-sign.png -->
+        <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">Surviving Street Nameplate: “McCarthy’s Court”</h4>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Physical Survival</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/mccarthys-court-street-sign.png', 'Surviving Cast-Iron Street Nameplate: “McCarthy’s Court”')">
+            <img src="images/mccarthys-court-street-sign.png" alt="Surviving Street Nameplate: McCarthy's Court" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/mccarthys-court-street-sign.png')">
+          </div>
+        </figure>
+
+        <p>
+          Yet despite decades of directory listings and insurance maps using <em>Macarthy’s</em>, the older, authentic spelling proved remarkably resilient. The painted cast-iron street nameplate that survives affixed to the wall of the lane today still proudly reads <strong>McCarthy’s Court</strong>, preserving the exact surname penned by Callaghan and Ann in their advertisements and legal documents seventy years earlier.
+        </p>
+
+        <!-- The Sanitary Reality -->
+        <div class="pt-6 space-y-5 border-t border-parchment-200">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-ink">
+            The Sanitary Reality: The 1850 Clark Report
+          </h3>
+
+          <p>
+            By the middle of the century, the rapid growth of Newport had placed enormous strain on the town’s infrastructure. In 1850, Superintending Inspector <strong>George Thomas Clark</strong> carried out a detailed sanitary survey on behalf of the General Board of Health, published as the <em>Report to the General Board of Health on the Sanitary Condition of the Town of Newport</em><a href="#fn-13" id="ref-13" class="fn-ref">13</a>.
+          </p>
+
+          <!-- Exhibit: 1850-clark-sanitary-report.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">1850 Clark Report Excerpt</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Board of Health • 1850</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1850-clark-sanitary-report.png', '1850 George Thomas Clark Sanitary Report — Excerpt on Newport courts')">
+              <img src="images/1850-clark-sanitary-report.png" alt="1850 Clark Report Excerpt" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1850-clark-sanitary-report.png')">
+            </div>
+          </figure>
+
+          <p>
+            Clark’s survey documented the intense physical contrast that defined Commercial Street. While the main street presented an unbroken facade of prosperous, respectable commercial shops, the narrow courts hidden behind them told a very different story. Clark noted that these deep rear yards contained a dense mixture of properties, ranging from substantial rear houses, workshops, and bakeries to tightly packed cottage tenements sharing common privies and surface gutters.
+          </p>
+
+          <p>
+            McCarthy's Court was singled out as one of these enclosed, unventilated alleys. With no through-draught and relying on a single narrow covered passage for access, the court was vulnerable to the cholera epidemics that swept through the port in 1849. Clark's findings prompted the newly formed Newport Local Board of Health to enforce stricter drainage, paving, and water supply regulations, gradually modernising the sanitary conditions of the court's residents.
+          </p>
+        </div>
+
+        <!-- Alfred Bland and the Secret Villa -->
+        <div class="pt-6 space-y-5 border-t border-parchment-200">
+          <h3 class="font-display text-2xl sm:text-3xl font-bold text-ink">
+            Alfred Bland and the Secret Villa at the Head of the Court (1868)
+          </h3>
+
+          <p>
+            Even as the lower section of the court housed artisans and tradesmen, the upper grounds preserved their exclusive, residential character. In the 1860s, confectioner <strong>Alfred Bland</strong> operated a highly successful pastrycook and catering business at No. 33 Commercial Street, directly opposite the entrance to the court.
+          </p>
+
+          <!-- Exhibit: 1868-bland-v-weir-police-court.png -->
+          <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+              <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">August 1868 Police Court Report (Bland v. P.C. Weir)</h4>
+              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Newport Magistrates • 1868</span>
+            </div>
+
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1868-bland-v-weir-police-court.png', 'August 1868 Police Court Report — Alfred Bland v. P.C. Weir')">
+              <img src="images/1868-bland-v-weir-police-court.png" alt="August 1868 Police Court Report (Bland v. P.C. Weir)" class="w-full max-h-96 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1868-bland-v-weir-police-court.png')">
+            </div>
+          </figure>
+
+          <p>
+            In August 1868, a colourful police court dispute brought before the Newport magistrates provided a remarkable glimpse into the top of the court<a href="#fn-14" id="ref-14" class="fn-ref">14</a>. Alfred Bland summoned Police Constable Weir for trespassing upon his private property and conducting himself improperly.
+          </p>
+
+          <p>
+            The court proceedings revealed that Bland did not live above his shop on Commercial Street, but resided in a secluded, high-status residence described by the court reporter as a <em>“villa situate at the head of Macarthy's Court, and behind Mr. Jehoiada Brewer's dwelling.”</em>
+          </p>
+
+          <p>
+            The testimony painted a vivid picture of the court's topography. Bland described walking home late at night down the narrow lane from Commercial Street, passing the lower cottages, and approaching an outer wooden door. Passing through, he climbed a private flight of stone steps leading up to an elevated inner garden entrance. When Bland challenged the constable for lurking in the darkness on his private grounds, Weir sneered that he was not afraid of Bland, <em>“although he did keep the gay shop opposite.”</em>
+          </p>
+
+          <p>
+            This elevated garden villa was none other than the historic <strong>Woodbine Cottage</strong>, which had housed Vicar Isaacson in the 1830s and was described in the 1856 Llanarth Estate letting as a seven-bedroom gentleman's residence with dining and drawing rooms, cellarage, and extensive terraced gardens. Bland’s presence confirmed that McCarthy’s Court remained a dual environment: an artisan court below, anchored by an elite gentleman’s villa on the rising ground above.
+          </p>
+
+          <!-- Interactive Pan & Zoom Map Viewer: 1888 Goad Fire Insurance Plan -->
+          <figure class="my-8 sm:my-10 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-3 border-b border-parchment-300 pb-2 gap-2">
+              <div>
+                <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">1888 Goad Fire Insurance Plan (Sheet 4)</h4>
+                <p class="font-sans text-[11px] text-ink-muted">Drag to pan or use zoom controls to inspect the court, Bland’s bakery, and Woodbine Cottage.</p>
+              </div>
+              
+              <!-- Controls Bar -->
+              <div class="flex flex-wrap items-center gap-1.5 font-sans text-xs">
+                <div class="inline-flex bg-white border border-parchment-300 rounded overflow-hidden shadow-sm">
+                  <button onclick="focusMap('court')" class="px-2 py-1 text-[11px] hover:bg-parchment-100 font-medium text-ink border-r border-parchment-200">Court Detail</button>
+                  <button onclick="focusMap('full')" class="px-2 py-1 text-[11px] hover:bg-parchment-100 font-medium text-ink-muted">Full Sheet</button>
+                </div>
+
+                <!-- Zoom In / Out -->
+                <div class="inline-flex items-center bg-white border border-parchment-300 rounded shadow-sm px-1.5 py-0.5">
+                  <button onclick="zoomMap(0.3)" class="px-2 py-0.5 hover:bg-parchment-100 rounded text-ink font-bold" title="Zoom In">+</button>
+                  <button onclick="zoomMap(-0.3)" class="px-2 py-0.5 hover:bg-parchment-100 rounded text-ink font-bold border-l border-parchment-200" title="Zoom Out">−</button>
+                  <span id="zoom-level" class="text-ink-muted ml-1.5 text-[10px] font-mono min-w-[36px] text-center">100%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Pan / Zoom Viewport -->
+            <div id="map-container" class="map-pan-container overflow-hidden rounded border border-parchment-300 bg-[#e8e2d5] relative h-[480px] sm:h-[600px]">
+              <div id="map-target" class="map-zoom-target absolute inset-0 flex items-center justify-center">
+                <img id="map-img" src="images/1888-goad-plan-mccarthys-court.png" alt="1888 Goad Fire Insurance Plan (Sheet 4)" class="w-auto h-full max-w-none select-none pointer-events-none drop-shadow-md" onerror="handleMissingImage(this, 'images/1888-goad-plan-mccarthys-court.png')">
+              </div>
+              
+              <!-- Floating Hint Overlay -->
+              <div class="absolute bottom-3 left-3 bg-black/65 backdrop-blur-sm text-parchment-100 text-[11px] font-sans px-2.5 py-1 rounded flex items-center gap-1.5 pointer-events-none shadow">
+                <svg class="w-3.5 h-3.5 text-antiqueGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                <span>Click &amp; drag to pan • Mousewheel / pinch to zoom</span>
+              </div>
+            </div>
+
+            <div class="mt-4 p-3.5 sm:p-4 bg-white/70 rounded border border-parchment-300 font-sans text-xs text-ink leading-relaxed">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span><strong>Source:</strong> Charles E. Goad Fire Insurance Plan of Newport, Sheet 4 (1888)<a href="#fn-15" class="fn-ref">15</a>.</span>
+                <button onclick="openLightbox('images/1888-goad-plan-mccarthys-court.png', '1888 Goad Fire Insurance Plan (Sheet 4) — McCarthy’s Court, Bland’s Bakery, and Woodbine Cottage')" class="text-vermilion hover:underline text-left sm:text-right font-medium">Open in Fullscreen Modal ↗</button>
+              </div>
+            </div>
+          </figure>
+
+          <p>
+            By the late 1880s, the commercial footprint of the block expanded once more. Sheet 4 of the 1888 Goad Fire Insurance Plan<a href="#fn-15" id="ref-15" class="fn-ref">15</a> shows that Alfred Bland had established a large bakery behind No. 152, famously marked on the plan as <em>“Admission Refused”</em> to protect his trade secrets. The head of the court still featured Woodbine Cottage, occupied by Charles Read, alongside stables, stores, and three surviving cottage tenements.
+          </p>
+        </div>
+      </section>
+
+      <!-- Editorial Fleuron Break -->
+      <div class="pt-12 pb-8 relative flex items-center justify-center" aria-hidden="true">
+        <div class="w-full max-w-[280px] sm:max-w-[360px] h-px bg-gradient-to-r from-transparent via-parchment-400 to-transparent"></div>
+        <div class="absolute bg-[#fcfaf6] px-3 flex items-center justify-center">
+          <svg class="w-3.5 h-3.5 block text-antiqueGold" viewBox="0 -3 24 24" fill="currentColor">
+            <path d="M12 2C11.5 4 10 6 8 7C6 8 4 8.5 2 9C4 9.5 6 10 8 11C10 12 11.5 14 12 16C12.5 14 14 12 16 11C18 10 20 9.5 22 9C20 8.5 18 8 16 7C14 6 12.5 4 12 2Z"/>
+            <circle cx="12" cy="9" r="1.5" class="text-vermilion" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- SECTION VI: CONCLUSION -->
+      <section class="space-y-5 sm:space-y-6">
+        <div class="pb-3 mb-6 border-b border-parchment-300">
+          <div class="flex items-center gap-2.5 mb-1.5">
+            <span class="h-0.5 w-6 bg-vermilion"></span>
+            <span class="font-header text-xs sm:text-sm tracking-[0.2em] text-vermilion font-bold uppercase">Section VI</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-ink leading-tight">
+            Conclusion
+          </h2>
+        </div>
+
+        <p>
+          Today, the entrance to McCarthy’s Court between Nos. 153 and 154 offers few clues to its long history. Demolitions in the mid-twentieth century for the expansion of Reynolds' department store cleared away the cottages and garden walls, truncating the lane into the quiet, cobbled cul-de-sac that remains today.
+        </p>
+
+        <p>
+          Yet when pieced together through sixty years of maps, deeds, census returns, and newspaper notices, the court emerges as one of the most remarkable micro-histories in Newport. It began as an open orchard in 1750, crossed by the rustic line of Corn Street and Deal Yard, before being caught up in the ambitious town improvements of 1810. Here, Callaghan McCarthy and Richard Davis risked £4,000 to plant a premier classical and commercial academy on the edge of the expanding town, complete with silver spoons, mandatory French conversation, and high academic standards.
+        </p>
+
+        <p>
+          As the town grew, the academy's footprint adapted to meet the demands of an industrial community. The Commercial Street frontage was reconstructed into smart retail shops for Herbert Williams and Thomas Waters, while Callaghan's thirty-to-forty-foot schoolroom and the rear domestic buildings evolved into the artisan homes of McCarthy’s Court. And perched on the hillside above, Woodbine Cottage stood witness to it all, housing vicars, schoolmasters, Ann McCarthy in her widowhood, and confectioner Alfred Bland.
+        </p>
+
+        <p>
+          McCarthy’s Court is not an accidental name, nor is it a forgotten relic of an anonymous landlord. It is the living, physical imprint of Callaghan and Ann McCarthy, whose grand Georgian academy helped shape the educational and architectural landscape of Commercial Street over two centuries ago.
+        </p>
+      </section>
+
+    </article>
+
+    <!-- Interactive Chronological Explorer (10 Milestones) -->
+    <section id="interactive-milestones" class="max-w-5xl mx-auto px-4 sm:px-6 my-14 sm:my-20">
+      <div class="bg-parchment-100 border border-parchment-300 rounded-xl p-5 sm:p-8 shadow-sm">
+        
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 pb-4 border-b border-parchment-300 gap-4">
+          <div>
+            <span class="font-header text-xs uppercase tracking-widest text-vermilion font-bold">Spatial &amp; Historical Navigator</span>
+            <h2 class="font-display text-2xl sm:text-4xl font-bold text-ink mt-1">10 Milestones of McCarthy’s Court</h2>
+            <p class="font-sans text-xs sm:text-sm text-ink-muted mt-1">Trace how Plot 81 evolved from hillside orchard to Georgian academy and Victorian court.</p>
+          </div>
+          <button onclick="openLightbox('images/1888-goad-plan-mccarthys-court.png', '1888 Goad Fire Insurance Plan (Sheet 4) — McCarthy’s Court, Bland’s Bakery, and Woodbine Cottage')" class="px-3.5 py-2 rounded border border-antiqueGold text-antiqueGold-dark hover:bg-antiqueGold/10 font-sans text-xs font-semibold flex items-center gap-1.5 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+            Inspect 1888 Goad Plan
+          </button>
+        </div>
+
+        <!-- Milestone Tabs -->
+        <div id="milestone-tabs" class="grid grid-cols-2 sm:grid-cols-5 gap-1.5 sm:gap-2 font-sans text-xs mb-6"></div>
+
+        <!-- Milestone Content Box -->
+        <div id="milestone-display" class="bg-white p-4 sm:p-6 rounded-lg border border-parchment-300 shadow-sm transition-all"></div>
+
+      </div>
+    </section>
+
+    <!-- Searchable Directory of Occupants, Proprietors & Sources -->
+    <section id="occupants-directory" class="max-w-5xl mx-auto px-4 sm:px-6 my-14 sm:my-20">
+      <div class="border-t border-b border-parchment-300 py-10 sm:py-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-antiqueGold"></span>
+              <span class="font-header text-xs uppercase tracking-widest text-antiqueGold-dark font-bold">Prosopographical &amp; Spatial Index</span>
+            </div>
+            <h2 class="font-display text-2xl sm:text-4xl font-bold text-ink mt-1">Occupants, Proprietors &amp; Landmarks</h2>
+            <p class="font-sans text-xs sm:text-sm text-ink-muted mt-1">Every documented resident, schoolmaster, tenant, and plot from 1750 to 1888.</p>
+          </div>
+
+          <!-- Filter Search Box -->
+          <div class="w-full md:w-80">
+            <label for="directory-search" class="block font-sans text-[11px] uppercase tracking-wider text-ink-muted mb-1 font-semibold">Filter Names, Years, or Trades</label>
+            <div class="relative">
+              <input type="text" id="directory-search" placeholder="Search e.g. McCarthy, Bland, 1841, Woodbine..." class="w-full pl-8 pr-3 py-2 text-xs font-sans rounded border border-parchment-300 bg-white focus:outline-none focus:border-vermilion shadow-inner">
+              <svg class="w-4 h-4 text-ink-muted absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Count Pill -->
+        <div class="flex items-center justify-between text-xs font-sans text-ink-muted mb-3 px-1">
+          <span id="directory-count">Showing all records</span>
+          <span class="text-[11px] italic hidden sm:inline">Compiled from surveys, deeds, censuses &amp; press notices</span>
+        </div>
+
+        <!-- Fully Visible Table -->
+        <div class="overflow-x-auto rounded-lg border border-parchment-300 bg-white">
+          <table class="min-w-full text-left font-sans text-xs">
+            <thead class="bg-parchment-100 border-b border-parchment-300 text-ink uppercase tracking-wider text-[11px] font-semibold">
+              <tr>
+                <th class="py-3 px-3 sm:px-4 w-24">Period</th>
+                <th class="py-3 px-3 sm:px-4">Name / Property</th>
+                <th class="py-3 px-3 sm:px-4">Role / Occupation</th>
+                <th class="py-3 px-3 sm:px-4">Location &amp; Archival Note</th>
+              </tr>
+            </thead>
+            <tbody id="directory-tbody" class="divide-y divide-parchment-200 text-ink-light"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-Width Traditional Footnotes Section -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-16 pt-8 border-t border-parchment-300 font-sans text-xs text-ink-muted leading-relaxed">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="w-2 h-2 rounded-full bg-vermilion"></span>
+        <h4 class="font-header text-xs uppercase tracking-widest text-vermilion font-bold">Notes &amp; Archival References</h4>
+      </div>
+      <ol class="space-y-3 list-decimal pl-5">
+        <li id="fn-1" class="pl-1">
+          <strong>1810 Newport Improvement Act (50 Geo. III):</strong> Parliamentary notice published by Tredegar Estate solicitor Thomas Prothero in September 1809 seeking compulsory purchase powers for the dwellings of William Beetle and William Howell at the Westgate entrance. <a href="#ref-1" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-2" class="pl-1">
+          <strong>c. 1750 Borough Survey:</strong> <em>Plan of the Town &amp; Borough of Newport</em> (copied from an ancient map c. 1750), recording Plot 81 held by Thomas Phillips, Gent. <a href="#ref-2" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-3" class="pl-1">
+          <strong>Archdeacon Coxe’s Town Plan (1800):</strong> William Coxe, <em>An Historical Tour in Monmouthshire</em> (London, 1801; plan surveyed c. 1800), engraving the southerly track across the Friars land as “Corn Street”. <a href="#ref-3" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-4" class="pl-1">
+          <strong>Newport School Prospectus:</strong> <em>The Gloucester Journal</em>, 31 December 1810, announcing the opening on 21 January 1811 under Callaghan McCarthy and Richard Davis. <a href="#ref-4" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-5" class="pl-1">
+          <strong>Latin Funeral Elegy for James Beavan:</strong> Published under the initials “C. M‘C.” in May 1814 following the death from consumption of seventeen-year-old pupil James Beavan. <a href="#ref-5" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-6" class="pl-1">
+          <strong>Dissolution of Partnership:</strong> <em>The London Gazette</em>, 12 January 1818, formally terminating the partnership between Callaghan McCarthy and Richard Davis. <a href="#ref-6" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-7" class="pl-1">
+          <strong>Rebuttal of the “Bread Slander”:</strong> <em>The Bristol Mirror</em>, 21 March 1829, followed by McCarthy’s retirement denial in June 1829 and handover notice to Rev. Thomas Boddington on 28 November 1829. <a href="#ref-7" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-8" class="pl-1">
+          <strong>Will &amp; Probate of Callaghan McCarthy:</strong> Holograph will dated 10 February 1831; proved in the Llandaff Diocesan Consistory Court on 25 October 1831 (ref: LL/1831/97 W). Burial recorded at St Woolos churchyard (Grave B56). <a href="#ref-8" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-9" class="pl-1">
+          <strong>The Boddington Controversy:</strong> Reported in <em>The Monmouthshire Merlin</em> (1831) following protests led by John Frost at the King’s Head Hotel and a formal complaint to the Bishop of Llandaff. <a href="#ref-9" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-10" class="pl-1">
+          <strong>Ann McCarthy in Caerleon:</strong> 1841 Census (Ultra Pontem, Christchurch parish) with sister Margaret Broughton, and 1851 Census recording her as an eighty-two-year-old invalid widow. <a href="#ref-10" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-11" class="pl-1">
+          <strong>1849 Clearance Auction:</strong> <em>The Monmouthshire Merlin</em>, 30 August 1849, advertising Messrs. Graham’s sale on 6 September 1849 at Mrs McCarthy’s late residence adjoining Woodbine Cottage. <a href="#ref-11" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-12" class="pl-1">
+          <strong>1841 Census of McCarthy’s Court:</strong> The National Archives, HO 107/751/19 (6 June 1841), enumerating forty-five residents across eight households between Nos. 153 and 154 Commercial Street. <a href="#ref-12" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-13" class="pl-1">
+          <strong>1850 Sanitary Survey:</strong> George Thomas Clark, <em>Report to the General Board of Health on the Sanitary Condition of the Town of Newport</em> (1850). <a href="#ref-13" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-14" class="pl-1">
+          <strong>Bland v. P.C. Weir:</strong> Newport Magistrates’ Court report, August 1868, describing Woodbine Cottage at the head of Macarthy’s Court. <a href="#ref-14" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-15" class="pl-1">
+          <strong>1888 Fire Insurance Plan:</strong> Charles E. Goad, <em>Insurance Plan of Newport, Mon.</em> (1888), Sheet 4, recording “Macarthy’s Court”, Alfred Bland’s bakery (“Admission Refused”), and Woodbine Cottage occupied by Charles Read. <a href="#ref-15" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Footer -->
+    <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-20 text-center text-xs font-sans text-ink-muted border-t border-parchment-300 pt-8">
+      <div class="flex justify-center items-center gap-2 mb-3">
+        <span class="font-header tracking-widest text-vermilion font-bold uppercase text-sm">Newport Cornucopia</span>
+      </div>
+      <p class="max-w-xl mx-auto leading-relaxed mb-4 font-serif text-sm text-ink-light">
+        A longform urban micro-history tracing McCarthy’s Court from its 1750 orchard origins and Georgian boarding academy to the Victorian courts of Commercial Street.
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- Interactive Lightbox Modal -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4 no-print" onclick="closeLightbox()">
+    <div class="relative max-w-5xl w-full max-h-[92vh] flex flex-col bg-[#1c1a17] text-parchment-100 rounded-xl overflow-hidden border border-antiqueGold/40 shadow-2xl" onclick="event.stopPropagation()">
+      <div class="p-3 sm:p-4 border-b border-white/10 flex items-center justify-between">
+        <h3 id="lightbox-caption" class="font-serif text-xs sm:text-base font-semibold text-antiqueGold-light"></h3>
+        <button onclick="closeLightbox()" class="text-white/70 hover:text-white p-1 rounded-full hover:bg-white/10 transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <div class="p-2 sm:p-6 flex-1 flex items-center justify-center overflow-auto bg-black/40">
+        <img id="lightbox-img" src="" alt="Enlarged Archival View" class="max-h-[72vh] max-w-full object-contain rounded shadow-lg">
+      </div>
+      <div class="px-4 py-2 bg-black/60 border-t border-white/10 text-right font-sans text-xs text-parchment-300">
+        Click outside or press Esc to return
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Implementation -->
+  <script>
+    // Graceful placeholder if an image file hasn't been added to images/ yet
+    function handleMissingImage(img, path) {
+      if (img.dataset.handled) return;
+      img.dataset.handled = 'true';
+      const wrapper = img.parentElement;
+      if (!wrapper) return;
+      img.style.display = 'none';
+      const placeholder = document.createElement('div');
+      placeholder.className = 'w-full py-12 px-4 text-center bg-parchment-100/80 text-ink-muted font-sans text-xs flex flex-col items-center justify-center gap-1.5';
+      placeholder.innerHTML = `
+        <svg class="w-6 h-6 text-antiqueGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        <span class="font-medium text-ink">${img.alt || 'Archival Image'}</span>
+        <span class="font-mono text-[11px] text-ink-faint">Awaiting file: ${path}</span>
+      `;
+      wrapper.appendChild(placeholder);
+    }
+
+    // Searchable Directory of Occupants, Proprietors & Landmarks
+    const directoryData = [
+      { period: "c. 1750", name: "Thomas Phillips, Gent.", role: "Freeholder / Proprietor", note: "Plot 81: Enclosed hillside orchard sloping toward Stow Hill on the c. 1750 Borough Survey." },
+      { period: "1794", name: "Deal Yard & Caer Fitchog", role: "Timber Yard & Enclosures", note: "Tredegar Estate Survey: Baltic timber storage yard and Friars lands crossed by a cartway." },
+      { period: "1800", name: "Corn Street (Extended Track)", role: "Pre-Improvement Track", note: "Archdeacon Coxe’s plan: track running south from Westgate before being straightened in 1810." },
+      { period: "1808", name: "Wesleyan Methodist Chapel", role: "Nonconformist Chapel", note: "Nos. 156–158 Commercial Street; built in open fields immediately north of the future school plot." },
+      { period: "1809–1810", name: "Thomas Prothero", role: "Tredegar Estate Solicitor", note: "Published Sept 1809 Parliamentary notice for the 1810 Newport Improvement Act (50 Geo. III)." },
+      { period: "1811–1831", name: "Callaghan McCarthy, Gent.", role: "Headmaster & Classical Scholar", note: "Former Walworth & Hyde Abbey master; invested £4,000 with Davis; died 3 Sept 1831 (Grave B56)." },
+      { period: "1811–1849", name: "Ann McCarthy (née Reigate)", role: "Matron & Widow", note: "Supervised up to 30 boarders; inherited estate in 1831; retired to Caerleon before 1849 clearance sale." },
+      { period: "1811–1818", name: "Richard Davis", role: "Co-Founder & Commercial Master", note: "Partnered with McCarthy in Newport School; partnership dissolved 12 Jan 1818; held mortgage demands." },
+      { period: "1814", name: "James Beavan (aged 17)", role: "Boarding Pupil", note: "Died of consumption at the schoolhouse in May 1814; commemorated in McCarthy’s 16-couplet Latin elegy." },
+      { period: "1829–1831", name: "Rev. Thomas Boddington, A.M.", role: "Curate & Schoolmaster", note: "Took over the School House on 28 Nov 1829; departed after the 1831 deathbed sacrament scandal." },
+      { period: "1830", name: "Rev. William Isaacson", role: "Vicar of St Woolos", note: "Resided at Woodbine Cottage in Feb 1830 when a son was born there." },
+      { period: "1832–1835", name: "Catherine & Emily Hunt", role: "Ladies’ Boarding Seminary", note: "Conducted seminary at “the residence of the late Mr. M'Carthy” before moving to Stow Hill." },
+      { period: "1836", name: "Rev. James Francis", role: "Minister of St Paul’s & Tutor", note: "Enlarged Woodbine Cottage in Dec 1836 to receive four private boarding pupils." },
+      { period: "1836–1841", name: "Herbert Williams", role: "Chemist & Druggist", note: "Opened Medical Hall at No. 154 Commercial Street; advertised the 30–40 ft rear schoolroom in 1837." },
+      { period: "1838", name: "Thomas Waters", role: "Solicitor", note: "Occupied the newly reconstructed northern frontage at No. 155 Commercial Street." },
+      { period: "1838–1841", name: "Benjamin Horton (Haston)", role: "Sawyer", note: "Named in 1838 rear tenements sale notice and 1841 Census inside McCarthy’s Court." },
+      { period: "1838–1841", name: "Charles Williams", role: "Mason", note: "Named in 1838 rear tenements sale notice and 1841 Census inside McCarthy’s Court." },
+      { period: "1841", name: "Jehoiada Brewer", role: "Surgeon", note: "No. 153 Commercial Street, immediately south of the covered archway into McCarthy’s Court." },
+      { period: "1841", name: "Charles Watkins", role: "Tailor", note: "McCarthy’s Court (1841 Census, HO 107/751/19)." },
+      { period: "1841", name: "Evan John & Daniel Hopkins", role: "Labourers", note: "McCarthy’s Court (1841 Census)." },
+      { period: "1841", name: "Charles Smith", role: "Merchant", note: "McCarthy’s Court (1841 Census)." },
+      { period: "1841", name: "William Webber", role: "Fireman", note: "McCarthy’s Court (1841 Census)." },
+      { period: "1841", name: "Rachel Dallimore", role: "Independent", note: "McCarthy’s Court (1841 Census)." },
+      { period: "1841", name: "Thomas Hearn", role: "Blacksmith", note: "McCarthy’s Court (1841 Census)." },
+      { period: "1841", name: "John James & Elias James", role: "Labourer & Smith", note: "McCarthy’s Court (1841 Census)." },
+      { period: "1841", name: "Thomas Morgan Llewellin", role: "Solicitor", note: "No. 155 Commercial Street (1841 Census), succeeding Thomas Waters." },
+      { period: "1850", name: "George Thomas Clark", role: "Sanitary Inspector", note: "Surveyed McCarthy’s Court as an enclosed, unventilated alley for the General Board of Health." },
+      { period: "1868–1888", name: "Alfred Bland", role: "Confectioner & Baker", note: "Resided at Woodbine Cottage at the head of the court (1868); built bakery behind No. 152 (“Admission Refused”)." },
+      { period: "1888", name: "Charles Read", role: "Occupant of Woodbine Cottage", note: "Recorded at Woodbine Cottage on Sheet 4 of the 1888 Goad Fire Insurance Plan." }
+    ];
+
+    const courtMilestones = [
+      {
+        id: 1,
+        title: "1. Plot 81 Orchard",
+        period: "c. 1750",
+        state: "Enclosed Hillside Orchard",
+        record: "Borough Survey Map (Plot 81)",
+        phase: "Pre-Street Landscape",
+        text: "Held by Thomas Phillips, Gent., sloping up toward Stow Hill. South of Westgate Street, no continuous road existed—only tracks and hedgerows separating private plots."
+      },
+      {
+        id: 2,
+        title: "2. Deal Yard & Friars",
+        period: "1794–1800",
+        state: "Timber Yard & Cartway",
+        record: "Tredegar Survey & Coxe Plan",
+        phase: "Pre-Street Landscape",
+        text: "Marked as an informal cartway skirting “Deal Yard” and “Caer Fitchog” in 1794, and engraved as an extension of “Corn Street” on Archdeacon Coxe’s 1800 plan."
+      },
+      {
+        id: 3,
+        title: "3. Improvement Act",
+        period: "1808–1810",
+        state: "Wesleyan Chapel & Staked Road",
+        record: "1809 Notice & 50 Geo. III",
+        phase: "Creation of Commercial St",
+        text: "The Wesleyan Chapel (Nos. 156–158) rose in open fields in 1808. In Sept 1809, Thomas Prothero sought compulsory purchase powers for the 1810 Newport Improvement Act."
+      },
+      {
+        id: 4,
+        title: "4. Newport School",
+        period: "1811–1818",
+        state: "£4,000 Boarding Academy",
+        record: "Gloucester Journal (31 Dec 1810)",
+        phase: "The Academy Era",
+        text: "Callaghan McCarthy and Richard Davis leased the plot south of the chapel, investing £4,000 in schoolrooms, dormitories, and grounds for up to thirty boarders."
+      },
+      {
+        id: 5,
+        title: "5. Beavan Elegy",
+        period: "May 1814",
+        state: "Classical Latin Verse",
+        record: "16 Elegiac Couplets (C. M‘C.)",
+        phase: "The Academy Era",
+        text: "Following the death of 17-year-old pupil James Beavan from consumption, McCarthy published a thirty-two-line Latin funeral elegy testifying to his scholarship and piety."
+      },
+      {
+        id: 6,
+        title: "6. Bread Slander & Exit",
+        period: "1818–1829",
+        state: "Debt & Handover to Boddington",
+        record: "Bristol Mirror (21 Mar / 28 Nov 1829)",
+        phase: "Transition",
+        text: "After dissolving his partnership with Davis in 1818 and rebutting the “bread slander” in March 1829, failing health forced McCarthy to hand the school to Rev. Thomas Boddington."
+      },
+      {
+        id: 7,
+        title: "7. Probate & Hunts",
+        period: "1831–1835",
+        state: "Ladies’ Seminary & Political Hall",
+        record: "Llandaff Will (LL/1831/97) & Press",
+        phase: "Partitioning",
+        text: "McCarthy died on 3 Sept 1831 (Grave B56). After Boddington’s departure, Catherine and Emily Hunt ran a ladies’ seminary here until 1835."
+      },
+      {
+        id: 8,
+        title: "8. Frontage Rebuilt",
+        period: "1836–1838",
+        state: "Nos. 154–155 Georgian Block",
+        record: "1836–38 Notices & Old Wesley Plate",
+        phase: "Commercial Frontage",
+        text: "Chemist Herbert Williams (No. 154) and solicitor Thomas Waters (No. 155) occupied the newly fronted three-storey shops, preserving the 30–40 ft schoolroom and archway behind."
+      },
+      {
+        id: 9,
+        title: "9. McCarthy’s Court",
+        period: "1841–1850",
+        state: "45 Residents in 8 Households",
+        record: "1841 Census & 1850 Clark Report",
+        phase: "Victorian Court",
+        text: "Named McCarthy’s Court in the 1841 Census (with sawyer Benjamin Horton and mason Charles Williams), and surveyed in 1850 by Inspector G. T. Clark as an unventilated alley."
+      },
+      {
+        id: 10,
+        title: "10. Woodbine & Bakery",
+        period: "1856–1888",
+        state: "7-Bedroom Villa & Steam Bakery",
+        record: "1868 Police Court & 1888 Goad Plan",
+        phase: "Late Victorian",
+        text: "Confectioner Alfred Bland lived at Woodbine Cottage at the head of the court (1868) and ran his secretive bakery (“Admission Refused”) behind No. 152 on the 1888 Goad Plan."
+      }
+    ];
+
+    let activeMilestone = 1;
+
+    function renderMilestones() {
+      const tabsContainer = document.getElementById('milestone-tabs');
+      if (!tabsContainer) return;
+
+      tabsContainer.innerHTML = courtMilestones.map(m => `
+        <button onclick="setMilestone(${m.id})" class="px-2 py-1.5 sm:px-2.5 sm:py-2 text-left rounded border transition truncate ${m.id === activeMilestone ? 'bg-vermilion text-white border-vermilion font-medium shadow-sm' : 'bg-white border-parchment-300 hover:border-antiqueGold text-ink-muted'}">
+          <span class="font-bold sm:hidden">${m.id}.</span> <span class="hidden sm:inline">${m.title}</span><span class="sm:hidden">${m.title.replace(/^\d+\.\s*/, '')}</span>
+        </button>
+      `).join('');
+
+      const cur = courtMilestones.find(m => m.id === activeMilestone) || courtMilestones[0];
+      const display = document.getElementById('milestone-display');
+      if (!display) return;
+
+      display.innerHTML = `
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-parchment-200 pb-3 mb-4 gap-2">
+          <div>
+            <span class="text-[10px] font-sans font-bold uppercase text-vermilion tracking-widest">${cur.phase} • ${cur.period}</span>
+            <h3 class="font-display text-xl sm:text-3xl font-bold text-ink">${cur.title}</h3>
+          </div>
+          <span class="px-2.5 py-1 bg-parchment-100 rounded border border-parchment-300 text-xs font-sans text-ink-muted self-start md:self-auto">Commercial Street, Newport</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans mb-3">
+          <div class="p-3 bg-parchment-100 rounded border border-parchment-300">
+            <span class="block text-[10px] uppercase font-bold text-vermilion">Site Condition</span>
+            <span class="font-serif text-sm sm:text-base text-ink font-semibold mt-0.5 block">${cur.state}</span>
+          </div>
+          <div class="p-3 bg-parchment-100 rounded border border-parchment-300">
+            <span class="block text-[10px] uppercase font-bold text-antiqueGold-dark">Primary Evidence</span>
+            <span class="font-serif text-sm sm:text-base text-ink font-semibold mt-0.5 block">${cur.record}</span>
+          </div>
+        </div>
+        <p class="font-serif text-sm sm:text-base text-ink-light leading-relaxed mt-2">${cur.text}</p>
+      `;
+    }
+
+    function setMilestone(id) {
+      activeMilestone = id;
+      renderMilestones();
+    }
+
+    function renderDirectoryTable(query = '') {
+      const tbody = document.getElementById('directory-tbody');
+      const countLabel = document.getElementById('directory-count');
+      if (!tbody) return;
+
+      const q = query.toLowerCase().trim();
+      const filtered = directoryData.filter(item =>
+        item.period.toLowerCase().includes(q) ||
+        item.name.toLowerCase().includes(q) ||
+        item.role.toLowerCase().includes(q) ||
+        item.note.toLowerCase().includes(q)
+      );
+
+      if (countLabel) {
+        countLabel.innerText = `Showing ${filtered.length} of ${directoryData.length} records`;
+      }
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-ink-muted italic">No matching records found for “${query}”.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(item => `
+        <tr class="hover:bg-parchment-50 transition border-b border-parchment-200">
+          <td class="py-2.5 px-3 sm:px-4 font-mono font-bold text-vermilion text-xs whitespace-nowrap">${item.period}</td>
+          <td class="py-2.5 px-3 sm:px-4 font-medium text-ink">${item.name}</td>
+          <td class="py-2.5 px-3 sm:px-4 text-antiqueGold-dark font-medium">${item.role}</td>
+          <td class="py-2.5 px-3 sm:px-4 text-ink-muted">${item.note}</td>
+        </tr>
+      `).join('');
+    }
+
+    // Lightbox Controls
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      if (!modal || !img) return;
+
+      img.src = src;
+      if (cap) cap.innerText = caption;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Map Pan & Zoom State for 1888 Goad Plan
+    let mapScale = 1.0;
+    let translateX = 0;
+    let translateY = 0;
+    let isPanning = false;
+    let startX = 0, startY = 0;
+
+    function updateMapTransform() {
+      const target = document.getElementById('map-target');
+      const indicator = document.getElementById('zoom-level');
+      if (target) {
+        target.style.transform = `translate(${translateX}px, ${translateY}px) scale(${mapScale})`;
+      }
+      if (indicator) {
+        indicator.innerText = Math.round(mapScale * 100) + '%';
+      }
+    }
+
+    function zoomMap(delta) {
+      mapScale = Math.min(4.0, Math.max(0.75, mapScale + delta));
+      updateMapTransform();
+    }
+
+    function focusMap(area) {
+      if (area === 'court') {
+        mapScale = 1.85;
+        translateX = 0;
+        translateY = 0;
+      } else if (area === 'full') {
+        mapScale = 1.0;
+        translateX = 0;
+        translateY = 0;
+      }
+      updateMapTransform();
+    }
+
+    function setupMapPan() {
+      const container = document.getElementById('map-container');
+      if (!container) return;
+
+      container.addEventListener('mousedown', (e) => {
+        isPanning = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isPanning) return;
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        updateMapTransform();
+      });
+
+      window.addEventListener('mouseup', () => { isPanning = false; });
+
+      container.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const delta = e.deltaY < 0 ? 0.25 : -0.25;
+        zoomMap(delta);
+      }, { passive: false });
+
+      let initialPinchDistance = null;
+      let initialScale = mapScale;
+
+      container.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          isPanning = true;
+          startX = e.touches[0].clientX - translateX;
+          startY = e.touches[0].clientY - translateY;
+        } else if (e.touches.length === 2) {
+          isPanning = false;
+          initialPinchDistance = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+          initialScale = mapScale;
+        }
+      }, { passive: true });
+
+      container.addEventListener('touchmove', (e) => {
+        if (isPanning && e.touches.length === 1) {
+          translateX = e.touches[0].clientX - startX;
+          translateY = e.touches[0].clientY - startY;
+          updateMapTransform();
+        } else if (e.touches.length === 2 && initialPinchDistance) {
+          const currentDistance = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+          );
+          const factor = currentDistance / initialPinchDistance;
+          mapScale = Math.min(4.0, Math.max(0.75, initialScale * factor));
+          updateMapTransform();
+        }
+      }, { passive: true });
+
+      container.addEventListener('touchend', () => {
+        isPanning = false;
+        initialPinchDistance = null;
+      });
+
+      updateMapTransform();
+    }
+
+    function setupMobilePepys() {
+      const entries = document.querySelectorAll('.pepys-entry');
+      entries.forEach(entry => {
+        entry.addEventListener('click', (e) => {
+          if (window.innerWidth >= 768) return;
+          e.stopPropagation();
+          const isActive = entry.classList.contains('active');
+          entries.forEach(el => el.classList.remove('active'));
+          if (!isActive) entry.classList.add('active');
+        });
+      });
+
+      document.addEventListener('click', () => {
+        entries.forEach(el => el.classList.remove('active'));
+      });
+    }
+
+    function init() {
+      renderMilestones();
+      renderDirectoryTable();
+      setupMapPan();
+      setupMobilePepys();
+
+      const searchInput = document.getElementById('directory-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => renderDirectoryTable(e.target.value));
+      }
+
+      window.addEventListener('scroll', () => {
+        const bar = document.getElementById('progress-bar');
+        if (!bar) return;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (window.scrollY / (docHeight || 1)) * 100;
+        bar.style.width = `${progress}%`;
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>
