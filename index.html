@@ -232,7 +232,7 @@
   <header class="sticky top-0 z-40 bg-[#fcfaf6]/95 backdrop-blur-md border-b border-parchment-300 transition-colors duration-300 no-print">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 h-14 flex items-center justify-between gap-2">
       <!-- Left: Branding -->
-      <div class="flex items-center min-w-0">
+      <a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;" title="Back to top" class="flex items-center min-w-0 hover:opacity-80 transition">
         <span class="font-header text-xs sm:text-xs tracking-widest text-vermilion uppercase font-bold truncate">
           Newport Cornucopia
         </span>
@@ -240,15 +240,12 @@
         <span class="font-display italic text-sm text-ink-light font-semibold hidden md:inline truncate">
           McCarthy’s Court
         </span>
-      </div>
+      </a>
 
       <!-- Right: Action Buttons -->
       <div class="flex items-center space-x-1.5 sm:space-x-3 text-xs font-sans shrink-0">
         <a href="#pre-commercial-maps" class="px-2 sm:px-2.5 py-1 rounded bg-parchment-100 hover:bg-parchment-200 text-ink-muted hover:text-ink transition hidden md:inline">
           Maps
-        </a>
-        <a href="#interactive-milestones" class="px-2 sm:px-2.5 py-1 rounded bg-parchment-100 hover:bg-parchment-200 text-ink-muted hover:text-ink transition hidden sm:inline">
-          Timeline
         </a>
         <a href="#occupants-directory" class="px-2 sm:px-2.5 py-1 rounded bg-parchment-100 hover:bg-parchment-200 text-ink-muted hover:text-ink transition text-[11px] sm:text-xs whitespace-nowrap">
           Directory
@@ -272,9 +269,18 @@
         McCarthy’s Court
       </h1>
 
-      <p class="font-display italic text-xl sm:text-2xl md:text-3xl text-ink-muted max-w-3xl mx-auto leading-snug mb-8">
+      <p class="font-display italic text-xl sm:text-2xl md:text-3xl text-ink-muted max-w-3xl mx-auto leading-snug mb-6">
         Tracing a quiet cobbled cul-de-sac off Commercial Street from a 1750 hillside orchard and Callaghan McCarthy’s £4,000 classical boarding academy to Victorian cottages and Woodbine Cottage.
       </p>
+
+      <!-- Author Byline & Reading Meta -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-1.5 rounded-full bg-parchment-100/80 border border-parchment-300 font-sans text-xs text-ink-muted">
+        <span class="font-medium text-ink">By <span class="font-semibold text-vermilion">Robert Gale</span></span>
+        <span class="text-parchment-400" aria-hidden="true">•</span>
+        <span id="word-count">6,877 words</span>
+        <span class="text-parchment-400" aria-hidden="true">•</span>
+        <span id="read-time">~31 min read</span>
+      </div>
 
       <!-- Collapsible Context Accordion -->
       <details class="group max-w-2xl mx-auto mt-12 mb-6 sm:mt-16 sm:mb-8 bg-parchment-100/70 hover:bg-parchment-100 border border-parchment-300 rounded-md transition text-left">
@@ -315,6 +321,22 @@
         <p class="drop-cap">
           Today, <strong>McCarthy’s Court</strong> exists as a quiet, unassuming cobbled dead-end lane opening off the western side of Commercial Street in Newport, nestled between Nos. 153 and 154. Truncated in the twentieth century by commercial redevelopment, it has long been an urban enigma—a surviving fragment of historic streetscape whose true origins and namesake have largely faded from local memory.
         </p>
+
+        <!-- Exhibit: McCarthy's Court Today (Entrance) -->
+        <figure class="my-8 sm:my-10 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink">McCarthy’s Court Today</h3>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Present-Day View</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/mccarthys-court-today-01.jpg', 'McCarthy’s Court today — Entrance off Commercial Street between Nos. 153 and 154')">
+            <img src="images/mccarthys-court-today-01.jpg" alt="McCarthy's Court entrance off Commercial Street today" class="w-full max-h-[460px] object-cover mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/mccarthys-court-today-01.jpg')">
+          </div>
+
+          <figcaption class="mt-3 font-sans text-xs text-ink-muted leading-relaxed">
+            <strong class="text-ink font-semibold">Today’s Entrance:</strong> [Add your note here describing the present-day entrance between Nos. 153 and 154 Commercial Street.]
+          </figcaption>
+        </figure>
 
         <div class="sidenote-wrapper">
           <p>
@@ -1458,6 +1480,44 @@
           Today, the entrance to McCarthy’s Court between Nos. 153 and 154 offers few clues to its long history. Demolitions in the mid-twentieth century for the expansion of Reynolds' department store cleared away the cottages and garden walls, truncating the lane into the quiet, cobbled cul-de-sac that remains today.
         </p>
 
+        <!-- Exhibit: McCarthy's Court Today (3-Image Gallery) -->
+        <figure class="my-8 sm:my-10 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h3 class="font-display text-xl sm:text-2xl font-bold text-ink">McCarthy’s Court Today: The Surviving Cul-de-Sac</h3>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Present-Day Views</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="flex flex-col">
+              <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/mccarthys-court-today-02.jpg', 'McCarthy’s Court today — Looking down the cobbled lane')">
+                <img src="images/mccarthys-court-today-02.jpg" alt="McCarthy's Court cobbled lane today" class="w-full h-48 object-cover group-hover:scale-[1.02] transition-transform duration-200" onerror="handleMissingImage(this, 'images/mccarthys-court-today-02.jpg')">
+              </div>
+              <span class="mt-2 font-sans text-[11px] leading-tight font-semibold text-ink">View 1</span>
+              <span class="mt-0.5 font-sans text-[11px] leading-snug text-ink-muted">Looking up from Commercial Street with what are likely to be original cobblestones.</span>
+            </div>
+
+            <div class="flex flex-col">
+              <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/mccarthys-court-today-03.jpg', 'McCarthy’s Court today — Surviving masonry and boundaries')">
+                <img src="images/mccarthys-court-today-03.jpg" alt="McCarthy's Court surviving masonry today" class="w-full h-48 object-cover group-hover:scale-[1.02] transition-transform duration-200" onerror="handleMissingImage(this, 'images/mccarthys-court-today-03.jpg')">
+              </div>
+              <span class="mt-2 font-sans text-[11px] leading-tight font-semibold text-ink">View 2</span>
+              <span class="mt-0.5 font-sans text-[11px] leading-snug text-ink-muted">The cobblestones leading to the old stables</span>
+            </div>
+
+            <div class="flex flex-col">
+              <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/mccarthys-court-today-04.jpg', 'McCarthy’s Court today — Truncated end of the court')">
+                <img src="images/mccarthys-court-today-04.jpg" alt="Truncated end of McCarthy's Court today" class="w-full h-48 object-cover group-hover:scale-[1.02] transition-transform duration-200" onerror="handleMissingImage(this, 'images/mccarthys-court-today-04.jpg')">
+              </div>
+              <span class="mt-2 font-sans text-[11px] leading-tight font-semibold text-ink">View 3</span>
+              <span class="mt-0.5 font-sans text-[11px] leading-snug text-ink-muted">Bricked up windows and doors on the south side of the alley possibly related to when Blands was there.</span>
+            </div>
+          </div>
+
+          <figcaption class="mt-4 pt-3 border-t border-parchment-200 font-sans text-xs text-ink-muted leading-relaxed">
+            <strong class="text-ink font-semibold">Surviving Streetscape:</strong> [Add your reflection or commentary here on what remains of McCarthy’s Court today compared with the 1841–1888 layout.]
+          </figcaption>
+        </figure>
+
         <p>
           Yet when pieced together through sixty years of maps, deeds, census returns, and newspaper notices, the court emerges as one of the most remarkable micro-histories in Newport. It began as an open orchard in 1750, crossed by the rustic line of Corn Street and Deal Yard, before being caught up in the ambitious town improvements of 1810. Here, Callaghan McCarthy and Richard Davis risked £4,000 to plant a premier classical and commercial academy on the edge of the expanding town, complete with silver spoons, mandatory French conversation, and high academic standards.
         </p>
@@ -1473,58 +1533,19 @@
 
     </article>
 
-    <!-- Interactive Chronological Explorer (10 Milestones) -->
-    <section id="interactive-milestones" class="max-w-5xl mx-auto px-4 sm:px-6 my-14 sm:my-20">
-      <div class="bg-parchment-100 border border-parchment-300 rounded-xl p-5 sm:p-8 shadow-sm">
-        
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 pb-4 border-b border-parchment-300 gap-4">
-          <div>
-            <span class="font-header text-xs uppercase tracking-widest text-vermilion font-bold">Spatial &amp; Historical Navigator</span>
-            <h2 class="font-display text-2xl sm:text-4xl font-bold text-ink mt-1">10 Milestones of McCarthy’s Court</h2>
-            <p class="font-sans text-xs sm:text-sm text-ink-muted mt-1">Trace how Plot 81 evolved from hillside orchard to Georgian academy and Victorian court.</p>
-          </div>
-          <button onclick="openLightbox('images/1888-goad-plan-mccarthys-court.jpg', '1888 Goad Fire Insurance Plan (Sheet 4) — McCarthy’s Court, Bland’s Bakery, and Woodbine Cottage')" class="px-3.5 py-2 rounded border border-antiqueGold text-antiqueGold-dark hover:bg-antiqueGold/10 font-sans text-xs font-semibold flex items-center gap-1.5 transition">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-            Inspect 1888 Goad Plan
-          </button>
-        </div>
-
-        <!-- Milestone Tabs -->
-        <div id="milestone-tabs" class="grid grid-cols-2 sm:grid-cols-5 gap-1.5 sm:gap-2 font-sans text-xs mb-6"></div>
-
-        <!-- Milestone Content Box -->
-        <div id="milestone-display" class="bg-white p-4 sm:p-6 rounded-lg border border-parchment-300 shadow-sm transition-all"></div>
-
-      </div>
-    </section>
-
     <!-- Searchable Directory of Occupants, Proprietors & Sources -->
     <section id="occupants-directory" class="max-w-5xl mx-auto px-4 sm:px-6 my-14 sm:my-20">
       <div class="border-t border-b border-parchment-300 py-10 sm:py-12">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 gap-4">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-antiqueGold"></span>
-              <span class="font-header text-xs uppercase tracking-widest text-antiqueGold-dark font-bold">Prosopographical &amp; Spatial Index</span>
-            </div>
-            <h2 class="font-display text-2xl sm:text-4xl font-bold text-ink mt-1">Occupants, Proprietors &amp; Landmarks</h2>
-            <p class="font-sans text-xs sm:text-sm text-ink-muted mt-1">Every documented resident, schoolmaster, tenant, and plot from 1750 to 1888.</p>
+        <div class="mb-6 sm:mb-8">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-antiqueGold"></span>
+            <span class="font-header text-xs uppercase tracking-widest text-antiqueGold-dark font-bold">Prosopographical &amp; Spatial Index</span>
           </div>
-
-          <!-- Filter Search Box -->
-          <div class="w-full md:w-80">
-            <label for="directory-search" class="block font-sans text-[11px] uppercase tracking-wider text-ink-muted mb-1 font-semibold">Filter Names, Years, or Trades</label>
-            <div class="relative">
-              <input type="text" id="directory-search" placeholder="Search e.g. McCarthy, Bland, 1841, Woodbine..." class="w-full pl-8 pr-3 py-2 text-xs font-sans rounded border border-parchment-300 bg-white focus:outline-none focus:border-vermilion shadow-inner">
-              <svg class="w-4 h-4 text-ink-muted absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-            </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-bold text-ink mt-1">Occupants, Proprietors &amp; Landmarks</h2>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mt-1">
+            <p class="font-sans text-xs sm:text-sm text-ink-muted">Every documented resident, schoolmaster, tenant, and plot from 1750 to 1888.</p>
+            <span class="font-sans text-[11px] italic text-ink-muted">Compiled from surveys, deeds, censuses &amp; press notices</span>
           </div>
-        </div>
-
-        <!-- Filter Count Pill -->
-        <div class="flex items-center justify-between text-xs font-sans text-ink-muted mb-3 px-1">
-          <span id="directory-count">Showing all records</span>
-          <span class="text-[11px] italic hidden sm:inline">Compiled from surveys, deeds, censuses &amp; press notices</span>
         </div>
 
         <!-- Fully Visible Table -->
@@ -1611,6 +1632,12 @@
 
   </main>
 
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Back to top" class="fixed bottom-5 right-5 z-40 px-3.5 py-2 rounded-full bg-[#fcfaf6]/95 backdrop-blur-sm border border-parchment-300 text-vermilion hover:bg-parchment-100 hover:border-antiqueGold shadow-md font-sans text-xs font-semibold flex items-center gap-1.5 transition-all duration-200 opacity-0 pointer-events-none translate-y-2 no-print">
+    <span>Top</span>
+    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 15l7-7 7 7"></path></svg>
+  </button>
+
   <!-- Interactive Lightbox Modal -->
   <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4 no-print" onclick="closeLightbox()">
     <div class="relative max-w-5xl w-full max-h-[92vh] flex flex-col bg-[#1c1a17] text-parchment-100 rounded-xl overflow-hidden border border-antiqueGold/40 shadow-2xl" onclick="event.stopPropagation()">
@@ -1678,7 +1705,7 @@
       { period: "1838", name: "Thomas Waters", role: "Solicitor", note: "Occupied the newly reconstructed northern frontage at No. 155 Commercial Street." },
       { period: "1838–1841", name: "Benjamin Horton (Haston)", role: "Sawyer", note: "Named in 1838 rear tenements sale notice and 1841 Census inside McCarthy’s Court." },
       { period: "1838–1841", name: "Charles Williams", role: "Mason", note: "Named in 1838 rear tenements sale notice and 1841 Census inside McCarthy’s Court." },
-      { period: "1841", name: "Jehoiada Brewer", role: "Surgeon", note: "No. 153 Commercial Street, immediately south of the covered archway into McCarthy’s Court." },
+      { period: "1841", name: "Jehoiada Brewer", role: "Surgeon", note: "No. 153 Commercial Street, immediately south of the entrance into McCarthy’s Court." },
       { period: "1841", name: "Charles Watkins", role: "Tailor", note: "McCarthy’s Court (1841 Census, HO 107/751/19)." },
       { period: "1841", name: "Evan John & Daniel Hopkins", role: "Labourers", note: "McCarthy’s Court (1841 Census)." },
       { period: "1841", name: "Charles Smith", role: "Merchant", note: "McCarthy’s Court (1841 Census)." },
@@ -1692,165 +1719,11 @@
       { period: "1888", name: "Charles Read", role: "Occupant of Woodbine Cottage", note: "Recorded at Woodbine Cottage on Sheet 4 of the 1888 Goad Fire Insurance Plan." }
     ];
 
-    const courtMilestones = [
-      {
-        id: 1,
-        title: "1. Plot 81 Orchard",
-        period: "c. 1750",
-        state: "Enclosed Hillside Orchard",
-        record: "Borough Survey Map (Plot 81)",
-        phase: "Pre-Street Landscape",
-        text: "Held by Thomas Phillips, Gent., sloping up toward Stow Hill. South of Westgate Street, no continuous road existed—only tracks and hedgerows separating private plots."
-      },
-      {
-        id: 2,
-        title: "2. Deal Yard & Friars",
-        period: "1794–1800",
-        state: "Timber Yard & Cartway",
-        record: "Tredegar Survey & Coxe Plan",
-        phase: "Pre-Street Landscape",
-        text: "Marked as an informal cartway skirting “Deal Yard” and “Caer Fitchog” in 1794, and engraved as an extension of “Corn Street” on Archdeacon Coxe’s 1800 plan."
-      },
-      {
-        id: 3,
-        title: "3. Improvement Act",
-        period: "1808–1810",
-        state: "Wesleyan Chapel & Staked Road",
-        record: "1809 Notice & 50 Geo. III",
-        phase: "Creation of Commercial St",
-        text: "The Wesleyan Chapel (Nos. 156–158) rose in open fields in 1808. In Sept 1809, Thomas Prothero sought compulsory purchase powers for the 1810 Newport Improvement Act."
-      },
-      {
-        id: 4,
-        title: "4. Newport School",
-        period: "1811–1818",
-        state: "£4,000 Boarding Academy",
-        record: "Gloucester Journal (31 Dec 1810)",
-        phase: "The Academy Era",
-        text: "Callaghan McCarthy and Richard Davis leased the plot south of the chapel, investing £4,000 in schoolrooms, dormitories, and grounds for up to thirty boarders."
-      },
-      {
-        id: 5,
-        title: "5. Beavan Elegy",
-        period: "May 1814",
-        state: "Classical Latin Verse",
-        record: "16 Elegiac Couplets (C. M‘C.)",
-        phase: "The Academy Era",
-        text: "Following the death of 17-year-old pupil James Beavan from consumption, McCarthy published a thirty-two-line Latin funeral elegy testifying to his scholarship and piety."
-      },
-      {
-        id: 6,
-        title: "6. Bread Slander & Exit",
-        period: "1818–1829",
-        state: "Debt & Handover to Boddington",
-        record: "Bristol Mirror (21 Mar / 28 Nov 1829)",
-        phase: "Transition",
-        text: "After dissolving his partnership with Davis in 1818 and rebutting the “bread slander” in March 1829, failing health forced McCarthy to hand the school to Rev. Thomas Boddington."
-      },
-      {
-        id: 7,
-        title: "7. Probate & Hunts",
-        period: "1831–1835",
-        state: "Ladies’ Seminary & Political Hall",
-        record: "Llandaff Will (LL/1831/97) & Press",
-        phase: "Partitioning",
-        text: "McCarthy died on 3 Sept 1831 (Grave B56). After Boddington’s departure, Catherine and Emily Hunt ran a ladies’ seminary here until 1835."
-      },
-      {
-        id: 8,
-        title: "8. Frontage Rebuilt",
-        period: "1836–1838",
-        state: "Nos. 154–155 Georgian Block",
-        record: "1836–38 Notices & Old Wesley Plate",
-        phase: "Commercial Frontage",
-        text: "Chemist Herbert Williams (No. 154) and solicitor Thomas Waters (No. 155) occupied the newly fronted three-storey shops, preserving the 30–40 ft schoolroom and lane behind."
-      },
-      {
-        id: 9,
-        title: "9. McCarthy’s Court",
-        period: "1841–1850",
-        state: "45 Residents in 8 Households",
-        record: "1841 Census & 1850 Clark Report",
-        phase: "Victorian Court",
-        text: "Named McCarthy’s Court in the 1841 Census (with sawyer Benjamin Horton and mason Charles Williams), and surveyed in 1850 by Inspector G. T. Clark as an unventilated alley."
-      },
-      {
-        id: 10,
-        title: "10. Woodbine & Bakery",
-        period: "1856–1888",
-        state: "7-Bedroom Villa & Steam Bakery",
-        record: "1868 Police Court & 1888 Goad Plan",
-        phase: "Late Victorian",
-        text: "Confectioner Alfred Bland lived at Woodbine Cottage at the head of the court (1868) and ran his secretive bakery (“Admission Refused”) behind No. 152 on the 1888 Goad Plan."
-      }
-    ];
-
-    let activeMilestone = 1;
-
-    function renderMilestones() {
-      const tabsContainer = document.getElementById('milestone-tabs');
-      if (!tabsContainer) return;
-
-      tabsContainer.innerHTML = courtMilestones.map(m => `
-        <button onclick="setMilestone(${m.id})" class="px-2 py-1.5 sm:px-2.5 sm:py-2 text-left rounded border transition truncate ${m.id === activeMilestone ? 'bg-vermilion text-white border-vermilion font-medium shadow-sm' : 'bg-white border-parchment-300 hover:border-antiqueGold text-ink-muted'}">
-          <span class="font-bold sm:hidden">${m.id}.</span> <span class="hidden sm:inline">${m.title}</span><span class="sm:hidden">${m.title.replace(/^\d+\.\s*/, '')}</span>
-        </button>
-      `).join('');
-
-      const cur = courtMilestones.find(m => m.id === activeMilestone) || courtMilestones[0];
-      const display = document.getElementById('milestone-display');
-      if (!display) return;
-
-      display.innerHTML = `
-        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-parchment-200 pb-3 mb-4 gap-2">
-          <div>
-            <span class="text-[10px] font-sans font-bold uppercase text-vermilion tracking-widest">${cur.phase} • ${cur.period}</span>
-            <h3 class="font-display text-xl sm:text-3xl font-bold text-ink">${cur.title}</h3>
-          </div>
-          <span class="px-2.5 py-1 bg-parchment-100 rounded border border-parchment-300 text-xs font-sans text-ink-muted self-start md:self-auto">Commercial Street, Newport</span>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans mb-3">
-          <div class="p-3 bg-parchment-100 rounded border border-parchment-300">
-            <span class="block text-[10px] uppercase font-bold text-vermilion">Site Condition</span>
-            <span class="font-serif text-sm sm:text-base text-ink font-semibold mt-0.5 block">${cur.state}</span>
-          </div>
-          <div class="p-3 bg-parchment-100 rounded border border-parchment-300">
-            <span class="block text-[10px] uppercase font-bold text-antiqueGold-dark">Primary Evidence</span>
-            <span class="font-serif text-sm sm:text-base text-ink font-semibold mt-0.5 block">${cur.record}</span>
-          </div>
-        </div>
-        <p class="font-serif text-sm sm:text-base text-ink-light leading-relaxed mt-2">${cur.text}</p>
-      `;
-    }
-
-    function setMilestone(id) {
-      activeMilestone = id;
-      renderMilestones();
-    }
-
-    function renderDirectoryTable(query = '') {
+    function renderDirectoryTable() {
       const tbody = document.getElementById('directory-tbody');
-      const countLabel = document.getElementById('directory-count');
       if (!tbody) return;
 
-      const q = query.toLowerCase().trim();
-      const filtered = directoryData.filter(item =>
-        item.period.toLowerCase().includes(q) ||
-        item.name.toLowerCase().includes(q) ||
-        item.role.toLowerCase().includes(q) ||
-        item.note.toLowerCase().includes(q)
-      );
-
-      if (countLabel) {
-        countLabel.innerText = `Showing ${filtered.length} of ${directoryData.length} records`;
-      }
-
-      if (filtered.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-ink-muted italic">No matching records found for “${query}”.</td></tr>`;
-        return;
-      }
-
-      tbody.innerHTML = filtered.map(item => `
+      tbody.innerHTML = directoryData.map(item => `
         <tr class="hover:bg-parchment-50 transition border-b border-parchment-200">
           <td class="py-2.5 px-3 sm:px-4 font-mono font-bold text-vermilion text-xs whitespace-nowrap">${item.period}</td>
           <td class="py-2.5 px-3 sm:px-4 font-medium text-ink">${item.name}</td>
@@ -2122,24 +1995,41 @@
       boxes.forEach(box => observer.observe(box));
     }
 
+    function updateReadingStats() {
+      const article = document.getElementById('article-body');
+      const wcEl = document.getElementById('word-count');
+      const rtEl = document.getElementById('read-time');
+      if (!article || !wcEl || !rtEl) return;
+
+      const text = (article.textContent || '').trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      const mins = Math.max(1, Math.round(words / 220));
+      wcEl.innerText = `${words.toLocaleString()} words`;
+      rtEl.innerText = `~${mins} min read`;
+    }
+
     function init() {
-      renderMilestones();
+      updateReadingStats();
       renderDirectoryTable();
       setupMapPan();
       setupMobilePepys();
       setupScrollNudge();
 
-      const searchInput = document.getElementById('directory-search');
-      if (searchInput) {
-        searchInput.addEventListener('input', (e) => renderDirectoryTable(e.target.value));
-      }
-
       window.addEventListener('scroll', () => {
         const bar = document.getElementById('progress-bar');
-        if (!bar) return;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (window.scrollY / (docHeight || 1)) * 100;
-        bar.style.width = `${progress}%`;
+        if (bar) {
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = (window.scrollY / (docHeight || 1)) * 100;
+          bar.style.width = `${progress}%`;
+        }
+
+        const topBtn = document.getElementById('back-to-top');
+        if (topBtn) {
+          const show = window.scrollY > 400;
+          topBtn.classList.toggle('opacity-0', !show);
+          topBtn.classList.toggle('pointer-events-none', !show);
+          topBtn.classList.toggle('translate-y-2', !show);
+        }
       });
     }
 
