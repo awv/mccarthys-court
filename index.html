@@ -4,6 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>McCarthy’s Court: From Georgian Academy to Commercial Street Enclave</title>
+  <meta name="description" content="Tracing a quiet cobbled cul-de-sac off Commercial Street in Newport from a 1750 hillside orchard and Callaghan McCarthy’s £4,000 classical boarding academy to Victorian cottages and Woodbine Cottage. By Robert Gale.">
+  <meta name="author" content="Robert Gale">
+  <link rel="icon" type="image/png" href="images/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="images/favicon.png?v=1">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Newport Cornucopia">
+  <meta property="og:url" content="https://mccarthyscourt.newportcornucopia.co.uk/">
+  <meta property="og:title" content="McCarthy’s Court: From Georgian Academy to Commercial Street Enclave">
+  <meta property="og:description" content="How a quiet cobbled lane off Commercial Street, Newport, grew out of Callaghan McCarthy’s £4,000 Georgian boarding academy—traced through 1750–1888 maps, deeds, censuses, and press notices.">
+  <meta property="og:image" content="https://mccarthyscourt.newportcornucopia.co.uk/images/og-image.jpg?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="McCarthy’s Court: From Georgian Academy to Commercial Street Enclave">
+  <meta name="twitter:description" content="How a quiet cobbled lane off Commercial Street, Newport, grew out of Callaghan McCarthy’s £4,000 Georgian boarding academy (1750–1888).">
+  <meta name="twitter:image" content="https://mccarthyscourt.newportcornucopia.co.uk/images/og-image.jpg?v=1">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -217,6 +235,9 @@
     @media print {
       .no-print { display: none !important; }
       body { background: white !important; color: black !important; }
+      figure, blockquote, details { break-inside: avoid; page-break-inside: avoid; }
+      h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+      .scroll-column-nudge { max-height: none !important; overflow: visible !important; }
     }
   </style>
 </head>
@@ -243,13 +264,34 @@
       </a>
 
       <!-- Right: Action Buttons -->
-      <div class="flex items-center space-x-1.5 sm:space-x-3 text-xs font-sans shrink-0">
+      <div class="flex items-center space-x-1.5 sm:space-x-2.5 text-xs font-sans shrink-0">
+        <details id="sections-menu" class="relative">
+          <summary class="list-none cursor-pointer select-none px-2 sm:px-2.5 py-1 rounded bg-parchment-100 hover:bg-parchment-200 text-ink-muted hover:text-ink transition text-[11px] sm:text-xs flex items-center gap-1 whitespace-nowrap">
+            <span>Sections</span>
+            <svg class="w-3 h-3 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </summary>
+          <nav aria-label="Article sections" class="absolute right-0 mt-2 w-64 rounded-lg bg-[#fcfaf6] border border-parchment-300 shadow-lg py-1.5 z-50 text-xs">
+            <a href="#section-intro" class="block px-3.5 py-1.5 hover:bg-parchment-100 text-ink-light hover:text-vermilion transition">I. Introduction</a>
+            <a href="#pre-commercial-maps" class="block px-3.5 py-1.5 hover:bg-parchment-100 text-ink-light hover:text-vermilion transition">II. Prior to Commercial St (1750–1810)</a>
+            <a href="#section-school" class="block px-3.5 py-1.5 hover:bg-parchment-100 text-ink-light hover:text-vermilion transition">III. The School Arrives</a>
+            <a href="#section-partitioning" class="block px-3.5 py-1.5 hover:bg-parchment-100 text-ink-light hover:text-vermilion transition">IV. Spatial Partitioning (1831–1849)</a>
+            <a href="#section-court" class="block px-3.5 py-1.5 hover:bg-parchment-100 text-ink-light hover:text-vermilion transition">V. McCarthy’s Court</a>
+            <a href="#section-conclusion" class="block px-3.5 py-1.5 hover:bg-parchment-100 text-ink-light hover:text-vermilion transition">VI. Conclusion</a>
+            <div class="my-1 border-t border-parchment-200"></div>
+            <a href="#occupants-directory" class="block px-3.5 py-1.5 hover:bg-parchment-100 text-ink-muted hover:text-vermilion transition">Occupants &amp; Landmarks Directory</a>
+            <a href="#notes-references" class="block px-3.5 py-1.5 hover:bg-parchment-100 text-ink-muted hover:text-vermilion transition">Notes &amp; Archival References</a>
+          </nav>
+        </details>
         <a href="#pre-commercial-maps" class="px-2 sm:px-2.5 py-1 rounded bg-parchment-100 hover:bg-parchment-200 text-ink-muted hover:text-ink transition hidden md:inline">
           Maps
         </a>
         <a href="#occupants-directory" class="px-2 sm:px-2.5 py-1 rounded bg-parchment-100 hover:bg-parchment-200 text-ink-muted hover:text-ink transition text-[11px] sm:text-xs whitespace-nowrap">
           Directory
         </a>
+        <button onclick="window.print()" title="Print or Save as PDF" class="px-2 sm:px-2.5 py-1 rounded bg-parchment-100 hover:bg-parchment-200 text-ink-muted hover:text-ink transition hidden sm:inline-flex items-center gap-1 whitespace-nowrap">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          <span>PDF</span>
+        </button>
       </div>
     </div>
   </header>
@@ -307,7 +349,7 @@
     <article id="article-body" class="max-w-3xl mx-auto px-4 sm:px-6 font-serif text-lg sm:text-xl text-ink leading-relaxed space-y-8 sm:space-y-9">
 
       <!-- SECTION I: INTRODUCTION -->
-      <section class="space-y-5 sm:space-y-6">
+      <section id="section-intro" class="space-y-5 sm:space-y-6 scroll-mt-16">
         <div class="pt-10 pb-3 mb-6 border-b border-parchment-300">
           <div class="flex items-center gap-2.5 mb-1.5">
             <span class="h-0.5 w-6 bg-vermilion"></span>
@@ -378,7 +420,7 @@
               <strong class="block text-vermilion font-semibold mb-0.5 text-xs font-sans uppercase tracking-wider">50 Geo. III (1810)</strong>
               Parliamentary Act that formally straightened, widened, and renamed the southerly route from the Westgate to Pillgwenlly as Commercial Street.
             </span>
-          </span> (50 Geo. III)<a href="#fn-1" id="ref-1" class="fn-ref">1</a>. The notice specifically sought compulsory purchase powers to demolish two older domestic dwellings—the houses of William Beetle, Evan Willaims and John Howell—which blocked the northern entrance where the new highway joined the Westgate.
+          </span> (50 Geo. III)<a href="#fn-1" id="ref-1" class="fn-ref">1</a>. The notice specifically sought compulsory purchase powers to demolish two older domestic dwellings—the houses of William Beetle, Evan Williams and John Howell—which blocked the northern entrance where the new highway joined the Westgate.
         </p>
 
         <p>
@@ -500,7 +542,7 @@
       </div>
 
       <!-- SECTION III: THE SCHOOL ARRIVES -->
-      <section class="space-y-5 sm:space-y-6">
+      <section id="section-school" class="space-y-5 sm:space-y-6 scroll-mt-16">
         <div class="pb-3 mb-6 border-b border-parchment-300">
           <div class="flex items-center gap-2.5 mb-1.5">
             <span class="h-0.5 w-6 bg-vermilion"></span>
@@ -884,7 +926,7 @@
       </div>
 
       <!-- SECTION IV: CHANGE OF OWNERSHIP AND SPATIAL PARTITIONING -->
-      <section class="space-y-5 sm:space-y-6">
+      <section id="section-partitioning" class="space-y-5 sm:space-y-6 scroll-mt-16">
         <div class="pb-3 mb-6 border-b border-parchment-300">
           <div class="flex items-center gap-2.5 mb-1.5">
             <span class="h-0.5 w-6 bg-vermilion"></span>
@@ -1096,25 +1138,24 @@
             While the roadside frontage facing Commercial Street was divided into modern retail and professional premises, the deep courtyard behind remained intact.
           </p>
 
-          <!-- Exhibit: 1837-advert-large-light-room.png -->
+          <!-- Exhibit: 1837-advert-large-light-room.jpg -->
           <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
             <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
               <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">1837 Advert to Let (Williams' 30-to-40-Foot Room)</h4>
-              <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">1837 Letting</span>
             </div>
 
-            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1837-advert-large-light-room.png', '1837 Advert to Let — House with a “Large Light Room, between 30 and 40 feet long”')">
-              <img src="images/1837-advert-large-light-room.png" alt="1837 Advert to Let (Williams' 30-to-40-Foot Room)" class="w-full max-h-80 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1837-advert-large-light-room.png')">
+            <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/1837-advert-large-light-room.jpg', '1837 Advert to Let — House with a “Large Light Room, between 30 and 40 feet long”')">
+              <img src="images/1837-advert-large-light-room.jpg" alt="1837 Advert to Let (Williams' 30-to-40-Foot Room)" class="w-full max-h-80 object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/1837-advert-large-light-room.png')">
             </div>
           </figure>
 
           <p>
-            In 1837, Herbert Williams placed an advertisement in the regional press offering to let a house to the rear. The notice described an extraordinary property: a house containing two sitting rooms, two bedrooms, and a <strong>“Large Light Room, between 30 and 40 feet long.”</strong> In early-nineteenth-century Newport, where domestic rooms rarely exceeded twelve to fifteen feet in width, a residential property containing a hall forty feet long was an absolute anomaly. This large room was Callaghan McCarthy’s original 1811 schoolroom hall, preserved behind the new chemist shop.
+            In 1837, Herbert Williams placed an advertisement in the regional press offering to let a house to the rear<a href="#fn-15" id="ref-15" class="fn-ref">15</a>. The notice described an extraordinary property: a house containing two sitting rooms, two bedrooms, and a <strong>“Large Light Room, between 30 and 40 feet long.”</strong> In early-nineteenth-century Newport, where domestic rooms rarely exceeded twelve to fifteen feet in width, a residential property containing a hall forty feet long was an absolute anomaly. This large room was Callaghan McCarthy’s original 1811 schoolroom hall, preserved behind the new chemist shop.
           </p>
 
           <div class="sidenote-wrapper">
             <p>
-              Further up the rising ground of the plot, stretching back towards Stow Hill, lay an elevated garden residence known as <strong>Woodbine Cottage</strong>. Throughout the 1830s and 1840s, this secluded house served as a home for prominent clergymen and professional men. In February 1830, a birth notice recorded the lady of the Reverend William Isaacson, Vicar of St Woolos, giving birth to a son at Woodbine Cottage. In December 1836, the Reverend James Francis, Minister of St Paul's Church, announced that he had enlarged his house at Woodbine Cottage in order to receive four young gentlemen as private boarding pupils to prepare them for public schools and universities.
+              Further up the rising ground of the plot, stretching back towards Stow Hill, lay an elevated garden residence known as <strong>Woodbine Cottage</strong>. Throughout the 1830s and 1840s, this secluded house served as a home for prominent clergymen and professional men. In February 1830, a birth notice recorded the lady of the Reverend William Isaacson, Vicar of St Woolos, giving birth to a son at Woodbine Cottage. In December 1836, the Reverend James Francis, Minister of St Paul's Church, announced that he had enlarged his house at Woodbine Cottage in order to receive three young gentlemen as private boarding pupils to prepare them for public schools and universities.
             </p>
             <div class="sidenote">
               <strong>Woodbine Cottage:</strong> Despite the modest name, the 1856 Llanarth Estate notice reveals a seven-bedroom gentleman’s villa with two kitchens, cellarage, and extensive terraced gardens.
@@ -1141,7 +1182,7 @@
             The true architectural scale of Woodbine Cottage was revealed in an 1856 advertisement published by the Llanarth Estate Office. The notice described a substantial gentleman’s villa situated between Stow Hill and Commercial Street, containing an excellent dining room and drawing room, three large family bedrooms and a dressing room, four servants' bedrooms, two kitchens, extensive cellarage, and a large private garden. Woodbine Cottage was not a modest country dwelling, but a sizable seven-bedroom gentleman's residence commanding the elevated ground overlooking the lower courtyard.
           </p>
           <p>
-            The topographical layout of this entire block is captured in remarkable detail on a map published in January 1854<a href="#fn-15" id="ref-15" class="fn-ref">15</a>. Surveyed prior to the mid-Victorian commercial expansions, the plan shows the open, uncovered lane of McCarthy’s Court branching off Commercial Street directly between the flank wall of No. 153 and the new shopfront of No. 154. Passing behind the street frontage, the lane skirts the four rear cottages and former schoolroom before terminating at the foot of an expansive, formally laid-out garden enclave rising towards Stow Hill. Perched at the crest of these elevated grounds sits the substantial detached footprint of Woodbine Cottage, visually confirming the secluded setting described in contemporary letting notices.
+            The topographical layout of this entire block is captured in remarkable detail on a map published in January 1854<a href="#fn-16" id="ref-16" class="fn-ref">16</a>. Surveyed prior to the mid-Victorian commercial expansions, the plan shows the open, uncovered lane of McCarthy’s Court branching off Commercial Street directly between the flank wall of No. 153 and the new shopfront of No. 154. Passing behind the street frontage, the lane skirts the four rear cottages and former schoolroom before terminating at the foot of an expansive, formally laid-out garden enclave rising towards Stow Hill. Perched at the crest of these elevated grounds sits the substantial detached footprint of Woodbine Cottage, visually confirming the secluded setting described in contemporary letting notices.
           </p>
 
           <!-- Exhibit: 1854-map.jpg -->
@@ -1167,7 +1208,7 @@
           </p>
 
           <p>
-            Following the financial restructuring of the estate in the early 1830s, Ann McCarthy moved out of Newport across the River Usk to <strong>Caerleon (Ultra Pontem)</strong>, residing in Christchurch parish with her sister, Margaret Broughton. The decennial census of 6 June 1841 records Ann living in Ultra Pontem with Margaret<a href="#fn-16" id="ref-16" class="fn-ref">16</a>. Moving out of Newport allowed Ann to rely on family support, particularly as she became afflicted with severe paralysis, while continuing to draw rental income from subletting her retained property interests in Newport.
+            Following the financial restructuring of the estate in the early 1830s, Ann McCarthy moved out of Newport across the River Usk to <strong>Caerleon (Ultra Pontem)</strong>, residing in Christchurch parish with her sister, Margaret Broughton. The decennial census of 6 June 1841 records Ann living in Ultra Pontem with Margaret<a href="#fn-17" id="ref-17" class="fn-ref">17</a>. Moving out of Newport allowed Ann to rely on family support, particularly as she became afflicted with severe paralysis, while continuing to draw rental income from subletting her retained property interests in Newport.
           </p>
 
           <!-- Exhibit: 1849-09-mccarthy-clearance-auction.png -->
@@ -1185,7 +1226,7 @@
           </figure>
 
           <p>
-            Ann maintained her legal and domestic connection to Commercial Street for eighteen years after Callaghan's death. This tenure was brought to a formal close in late summer 1849. An auction notice published in the <em>Monmouthshire Merlin</em> on 30 August 1849<a href="#fn-17" id="ref-17" class="fn-ref">17</a> announced that on Thursday, 6 September, auctioneers Messrs. Graham would conduct an unreserved public sale of household furniture and personal effects:
+            Ann maintained her legal and domestic connection to Commercial Street for eighteen years after Callaghan's death. This tenure was brought to a formal close in late summer 1849. An auction notice published in the <em>Monmouthshire Merlin</em> on 30 August 1849<a href="#fn-18" id="ref-18" class="fn-ref">18</a> announced that on Thursday, 6 September, auctioneers Messrs. Graham would conduct an unreserved public sale of household furniture and personal effects:
           </p>
 
           <blockquote class="my-6 pl-5 pr-4 py-3.5 bg-parchment-100/70 border-l-4 border-antiqueGold rounded-r-md font-serif italic text-base sm:text-lg text-ink-light leading-relaxed">
@@ -1214,7 +1255,7 @@
       </div>
 
       <!-- SECTION V: MCCARTHY'S COURT -->
-      <section class="space-y-5 sm:space-y-6">
+      <section id="section-court" class="space-y-5 sm:space-y-6 scroll-mt-16">
         <div class="pb-3 mb-6 border-b border-parchment-300">
           <div class="flex items-center gap-2.5 mb-1.5">
             <span class="h-0.5 w-6 bg-vermilion"></span>
@@ -1245,6 +1286,33 @@
           The 1838 property sale notice provides the first detailed snapshot of this transition. Directly behind the two new front buildings occupied by Herbert Williams and Thomas Waters, the notice recorded four messuages or tenements with gardens attached. These four cottages were already tenanted, occupied respectively by Benjamin Haston (Horton), Charles Williams, Jane Waters, and James Price. Whilst not explicitly mentioned as living in McCarthy's Court, they may well have given it as an address if asked. These four properties were first mentioned in an advert of 1836 earlier in this article which is possibly when they were first built.
         </p>
 
+        <!-- ========================================================= -->
+        <!-- April 1839 Partition: Auction of Thomas Waters' Half      -->
+        <!-- ========================================================= -->
+
+        <p> The subsequent division of this holding is documented in an auction notice published in the <em>Monmouthshire Merlin</em> on 20 April 1839. Offering the premises at the Rodney Arms Inn, auctioneer John Williams advertised Lot 1 not as the full pair, but as a single portion:</p>
+
+        <blockquote class="my-6 pl-5 pr-4 py-3.5 bg-parchment-100/70 border-l-4 border-antiqueGold rounded-r-md font-serif italic text-base sm:text-lg text-ink-light leading-relaxed">
+          “ONE newly-built, large, and commodious MESSUAGE or DWELLING-HOUSE... in Commercial-street, and now in the occupation of Mr. Waters, Solicitor.” Situated directly behind Waters’ premises were “Two neat COTTAGES, with Gardens attached, behind the last-mentioned Premises, in the respective occupations of Benjamin Horton and Charles Williams.”
+        </blockquote>
+
+        <p> Crucially, the 1839 notice specifies an apportioned ground rent of exactly <strong>£6 per annum</strong>—precisely half of the £12 ground rent recorded for the combined property in 1838. Herbert Williams (or his landlord) had evidently secured the southern half at No. 154, leaving Waters’ northern half (No. 155) and its two rear cottages to be auctioned independently. This confirms that the front messuages were the street-facing properties, while the rear cottages housed the working-class tenants who would soon populate the census schedules. </p>
+
+        <!-- Exhibit: Monmouthshire-Merlin-20-04-1839.jpg -->
+        <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
+          <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
+            <h4 class="font-display text-xl sm:text-2xl font-bold text-ink">The 1839 Partition Auction</h4>
+            <span class="font-sans text-[11px] text-ink-muted uppercase tracking-wider hidden sm:inline">Monmouthshire Merlin • 20 April 1839</span>
+          </div>
+
+          <div class="overflow-hidden rounded border border-parchment-300 bg-black/5 cursor-pointer group" onclick="openLightbox('images/Monmouthshire-Merlin-20-04-1839.jpg', 'The 1839 Partition Auction — Monmouthshire Merlin, 20 April 1839')">
+            <img src="images/Monmouthshire-Merlin-20-04-1839.jpg" alt="Monmouthshire Merlin auction notice, 20 April 1839, advertising Lot 1" loading="lazy" class="w-full max-h-[480px] object-contain mx-auto group-hover:scale-[1.01] transition-transform duration-200" onerror="handleMissingImage(this, 'images/Monmouthshire-Merlin-20-04-1839.jpg')">
+          </div>
+
+          <figcaption class="mt-3 font-sans text-xs text-ink-muted leading-relaxed">
+            <strong class="text-ink font-semibold">Archival Significance:</strong> Announcement of the sale of Thomas Waters’ front house (No. 155) and the two rear cottages occupied by Horton and Williams, <em>Monmouthshire Merlin</em>, 20 April 1839.
+          </figcaption>
+        </figure>
         <!-- Exhibit: 1841 Census Returns (2 Sheets) -->
         <figure class="my-8 p-4 sm:p-5 bg-[#f7f3ea] border border-parchment-300 rounded-lg shadow-sm">
           <div class="mb-3 border-b border-parchment-300 pb-2 flex items-center justify-between">
@@ -1334,15 +1402,28 @@
           </h3>
 
           <p>
-            By the middle of the century, the rapid growth of Newport had placed enormous strain on the town’s infrastructure. In 1850, Superintending Inspector <strong>George Thomas Clark</strong> carried out a detailed sanitary survey on behalf of the General Board of Health, published as the <em>Report to the General Board of Health on the Sanitary Condition of the Town of Newport</em><a href="#fn-19" id="ref-19" class="fn-ref">19</a>.
+            By the middle of the century, the rapid growth of Newport had placed enormous strain on the town’s infrastructure. In 1850, Superintending Inspector 
+            <span class="pepys-entry" tabindex="0">
+              <strong>George Thomas Clark</strong>
+              <span class="pepys-popover">
+                <strong class="block text-vermilion font-semibold mb-0.5 text-xs font-sans uppercase tracking-wider">General Board of Health</strong>
+                Civil engineer and sanitary inspector under the 1848 Public Health Act whose 1850 Newport survey exposed the contrast between Commercial Street’s shopfronts and its enclosed rear courts.
+              </span>
+            </span> carried out a detailed sanitary survey on behalf of the General Board of Health, published as the <em>Report to the General Board of Health on the Sanitary Condition of the Town of Newport</em><a href="#fn-20" id="ref-20" class="fn-ref">20</a>.
           </p>
 
           <p>
             Clark’s survey documented the intense physical contrast that defined Commercial Street. While the main street presented an unbroken facade of prosperous, respectable commercial shops, the narrow courts hidden behind them told a very different story. Clark noted that these deep rear yards contained a dense mixture of properties, ranging from substantial rear houses, workshops, and bakeries to tightly packed cottage tenements sharing common privies and surface gutters.
           </p>
 
-          <p>
-          McCarthy's Court was singled out as one of these enclosed, unventilated alleys. With no through-draught and relying on a single narrow passage between the Commercial Street shopfronts for access, the court was vulnerable to the cholera epidemics that swept through the port in 1849\. Clark's findings prompted the newly formed Newport Local Board of Health to enforce stricter drainage, paving, and water supply regulations, gradually modernizing the sanitary conditions of the court's residents.          </p>
+          <div class="sidenote-wrapper">
+            <p>
+              McCarthy's Court was singled out as one of these enclosed, unventilated alleys. With no through-draught and relying on a single narrow passage between the Commercial Street shopfronts for access, the court was vulnerable to the cholera epidemics that swept through the port in 1849. Clark's findings prompted the newly formed Newport Local Board of Health to enforce stricter drainage, paving, and water supply regulations, gradually modernizing the sanitary conditions of the court's residents.
+            </p>
+            <div class="sidenote">
+              <strong>Public Health Turning Point:</strong> Clark’s 1850 report directly led to the creation of Newport’s Local Board of Health, bringing piped water, street paving, and covered drainage to Commercial Street’s rear courts.
+            </div>
+          </div>
         </div>
 
         <!-- Alfred Bland and the Secret Villa -->
@@ -1397,7 +1478,7 @@
           </figure>
 
           <p>
-            In August 1868, a colourful police court dispute brought before the Newport magistrates provided a remarkable glimpse into the top of the court<a href="#fn-20" id="ref-20" class="fn-ref">20</a>. Alfred Bland summoned Police Constable Weir for trespassing upon his private property and conducting himself improperly.
+            In August 1868, a colourful police court dispute brought before the Newport magistrates provided a remarkable glimpse into the top of the court<a href="#fn-21" id="ref-21" class="fn-ref">21</a>. Alfred Bland summoned Police Constable Weir for trespassing upon his private property and conducting himself improperly.
           </p>
 
           <p>
@@ -1451,14 +1532,14 @@
 
             <div class="mt-4 p-3.5 sm:p-4 bg-white/70 rounded border border-parchment-300 font-sans text-xs text-ink leading-relaxed">
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <span><strong>Source:</strong> Charles E. Goad Fire Insurance Plan of Newport, Sheet 4 (1888)<a href="#fn-21" class="fn-ref">21</a>.</span>
+                <span><strong>Source:</strong> Charles E. Goad Fire Insurance Plan of Newport, Sheet 4 (1888)<a href="#fn-22" class="fn-ref">22</a>.</span>
                 <button onclick="openLightbox('images/1888-goad-plan-mccarthys-court.jpg', '1888 Goad Fire Insurance Plan (Sheet 4) — McCarthy’s Court, Bland’s Bakery, and Woodbine Cottage')" class="text-vermilion hover:underline text-left sm:text-right font-medium">Open in Fullscreen Modal ↗</button>
               </div>
             </div>
           </figure>
 
           <p>
-            By the late 1880s, the commercial footprint of the block expanded once more. Sheet 4 of the 1888 Goad Fire Insurance Plan<a href="#fn-21" id="ref-21" class="fn-ref">21</a> shows that Alfred Bland had established a large bakery behind No. 152, famously marked on the plan as <em>“Admission Refused”</em> to protect his trade secrets. The head of the court still featured Woodbine Cottage, occupied by Charles Read, alongside stables, stores, and three surviving cottage tenements.
+            By the late 1880s, the commercial footprint of the block expanded once more. Sheet 4 of the 1888 Goad Fire Insurance Plan<a href="#fn-22" id="ref-22" class="fn-ref">22</a> shows that Alfred Bland had established a large bakery behind No. 152, marked on the plan as <em>“Admission Refused”</em> to protect his trade secrets. The head of the court still featured Woodbine Cottage, occupied by Charles Read, alongside stables, stores, and three surviving cottage tenements.
           </p>
         </div>
       </section>
@@ -1475,7 +1556,7 @@
       </div>
 
       <!-- SECTION VI: CONCLUSION -->
-      <section class="space-y-5 sm:space-y-6">
+      <section id="section-conclusion" class="space-y-5 sm:space-y-6 scroll-mt-16">
         <div class="pb-3 mb-6 border-b border-parchment-300">
           <div class="flex items-center gap-2.5 mb-1.5">
             <span class="h-0.5 w-6 bg-vermilion"></span>
@@ -1524,7 +1605,7 @@
           </div>
 
           <figcaption class="mt-4 pt-3 border-t border-parchment-200 font-sans text-xs text-ink-muted leading-relaxed">
-            <strong class="text-ink font-semibold">Surviving Streetscape:</strong> [Add your reflection or commentary here on what remains of McCarthy’s Court today compared with the 1841–1888 layout.]
+            <strong class="text-ink font-semibold">Surviving Streetscape:</strong> The buildings have the original alleyway have long been removed and School Lane at the rear of the court has paved over the gardens but there are still some remnants of the original road in the form of the cobblestones and the bricked-up building on the left is possibly related to Bland's bakery.
           </figcaption>
         </figure>
 
@@ -1576,7 +1657,7 @@
     </section>
 
     <!-- Full-Width Traditional Footnotes Section -->
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-16 pt-8 border-t border-parchment-300 font-sans text-xs text-ink-muted leading-relaxed">
+    <section id="notes-references" class="max-w-5xl mx-auto px-4 sm:px-6 mb-16 pt-8 border-t border-parchment-300 font-sans text-xs text-ink-muted leading-relaxed scroll-mt-16">
       <div class="flex items-center gap-2 mb-4">
         <span class="w-2 h-2 rounded-full bg-vermilion"></span>
         <h4 class="font-header text-xs uppercase tracking-widest text-vermilion font-bold">Notes &amp; Archival References</h4>
@@ -1625,25 +1706,28 @@
           <strong>July 1836 Property Auction Notice:</strong> Published in <em><a href="http://newspapers.library.wales/browse/3631009" target="_blank" rel="noopener noreferrer" class="text-vermilion hover:underline">The Glamorgan, Monmouth and Brecon Gazette and Merthyr Guardian</a></em>, 16 July 1836. <a href="#ref-14" class="text-vermilion ml-1" title="Back to text">↩</a>
         </li>
         <li id="fn-15" class="pl-1">
-          <strong>January 1854 Town Map:</strong> Original map is viewable at Newport Museum. <a href="#ref-15" class="text-vermilion ml-1" title="Back to text">↩</a>
+          <strong>1837 Rear House &amp; Long Room Letting:</strong> Published in <em>The Monmouthshire Merlin</em>, 15 April 1837. <a href="#ref-15" class="text-vermilion ml-1" title="Back to text">↩</a>
         </li>
         <li id="fn-16" class="pl-1">
-          <strong>Ann McCarthy in Caerleon:</strong> 1841 Census (Ultra Pontem, Christchurch parish) with sister Margaret Broughton, and 1851 Census recording her as an eighty-two-year-old invalid widow. <a href="#ref-16" class="text-vermilion ml-1" title="Back to text">↩</a>
+          <strong>January 1854 Town Map:</strong> Original map is viewable at Newport Museum. <a href="#ref-16" class="text-vermilion ml-1" title="Back to text">↩</a>
         </li>
         <li id="fn-17" class="pl-1">
-          <strong>1849 Clearance Auction:</strong> <em>The Monmouthshire Merlin</em>, 30 August 1849, advertising Messrs. Graham’s sale on 6 September 1849 at Mrs McCarthy’s late residence adjoining Woodbine Cottage. <a href="#ref-17" class="text-vermilion ml-1" title="Back to text">↩</a>
+          <strong>Ann McCarthy in Caerleon:</strong> 1841 Census (Ultra Pontem, Christchurch parish) with sister Margaret Broughton, and 1851 Census recording her as an eighty-two-year-old invalid widow. <a href="#ref-17" class="text-vermilion ml-1" title="Back to text">↩</a>
         </li>
         <li id="fn-18" class="pl-1">
-          <strong>1841 Census of McCarthy’s Court:</strong> The National Archives, HO 107/751/19 (6 June 1841), enumerating forty-five residents across eight households between Nos. 153 and 154 Commercial Street. <a href="#ref-18" class="text-vermilion ml-1" title="Back to text">↩</a>
+          <strong>1849 Clearance Auction:</strong> <em>The Monmouthshire Merlin</em>, 30 August 1849, advertising Messrs. Graham’s sale on 6 September 1849 at Mrs McCarthy’s late residence adjoining Woodbine Cottage. <a href="#ref-18" class="text-vermilion ml-1" title="Back to text">↩</a>
         </li>
         <li id="fn-19" class="pl-1">
-          <strong>1850 Sanitary Survey:</strong> George Thomas Clark, <em>Report to the General Board of Health on the Sanitary Condition of the Town of Newport</em> (1850). <a href="#ref-19" class="text-vermilion ml-1" title="Back to text">↩</a>
+          <strong>1841 Census of McCarthy’s Court:</strong> The National Archives, HO 107/751/19 (6 June 1841), enumerating forty-five residents across eight households between Nos. 153 and 154 Commercial Street. <a href="#ref-19" class="text-vermilion ml-1" title="Back to text">↩</a>
         </li>
         <li id="fn-20" class="pl-1">
-          <strong>Bland v. P.C. Weir:</strong> Newport Magistrates’ Court report, August 1868, describing Woodbine Cottage at the head of Macarthy’s Court. <a href="#ref-20" class="text-vermilion ml-1" title="Back to text">↩</a>
+          <strong>1850 Sanitary Survey:</strong> George Thomas Clark, <em>Report to the General Board of Health on the Sanitary Condition of the Town of Newport</em> (1850). <a href="#ref-20" class="text-vermilion ml-1" title="Back to text">↩</a>
         </li>
         <li id="fn-21" class="pl-1">
-          <strong>1888 Fire Insurance Plan:</strong> Charles E. Goad, <em>Insurance Plan of Newport, Mon.</em> (1888), Sheet 4, recording “Macarthy’s Court”, Alfred Bland’s bakery (“Admission Refused”), and Woodbine Cottage occupied by Charles Read. <a href="#ref-21" class="text-vermilion ml-1" title="Back to text">↩</a>
+          <strong>Bland v. P.C. Weir:</strong> Newport Magistrates’ Court report, August 1868, describing Woodbine Cottage at the head of Macarthy’s Court. <a href="#ref-21" class="text-vermilion ml-1" title="Back to text">↩</a>
+        </li>
+        <li id="fn-22" class="pl-1">
+          <strong>1888 Fire Insurance Plan:</strong> Charles E. Goad, <em>Insurance Plan of Newport, Mon.</em> (1888), Sheet 4, recording “Macarthy’s Court”, Alfred Bland’s bakery (“Admission Refused”), and Woodbine Cottage occupied by Charles Read. <a href="#ref-22" class="text-vermilion ml-1" title="Back to text">↩</a>
         </li>
       </ol>
     </section>
@@ -1721,16 +1805,16 @@
       { period: "1800", name: "Corn Street (Extended Track)", role: "Pre-Improvement Track", note: "Archdeacon Coxe’s plan: track running south from Westgate before being straightened in 1810." },
       { period: "1808", name: "Wesleyan Methodist Chapel", role: "Nonconformist Chapel", note: "Nos. 156–158 Commercial Street; built in open fields immediately north of the future school plot." },
       { period: "1809–1810", name: "Thomas Prothero", role: "Tredegar Estate Solicitor", note: "Published Sept 1809 Parliamentary notice for the 1810 Newport Improvement Act (50 Geo. III)." },
-      { period: "1811–1831", name: "Callaghan McCarthy, Gent.", role: "Headmaster & Classical Scholar", note: "Former Walworth & Hyde Abbey master; invested £4,000 with Davis; died 3 Sept 1831 (Grave B56)." },
+      { period: "1811–1831", name: "Callaghan McCarthy, Gent.", role: "Headmaster & Classical Scholar", note: "Former Walworth & Hyde Abbey master; invested £4,000 with Davis; died 3 Sept 1831 (Grave B56 at St Woolos)." },
       { period: "1811–1849", name: "Ann McCarthy (née Reigate)", role: "Matron & Widow", note: "Supervised up to 30 boarders; inherited estate in 1831; retired to Caerleon before 1849 clearance sale." },
       { period: "1811–1818", name: "Richard Davis", role: "Co-Founder & Commercial Master", note: "Partnered with McCarthy in Newport School; partnership dissolved 12 Jan 1818; held mortgage demands." },
-      { period: "1814", name: "James Beavan (aged 17)", role: "Boarding Pupil", note: "Died of consumption at the schoolhouse in May 1814; commemorated in McCarthy’s 16-couplet Latin elegy." },
+      { period: "1814", name: "James Beavan (aged 17)", role: "Boarding Pupil", note: "Died of consumption at the schoolhouse in July 1816; commemorated in McCarthy’s 16-couplet Latin elegy." },
       { period: "1829–1831", name: "Rev. Thomas Boddington, A.M.", role: "Curate & Schoolmaster", note: "Took over the School House on 28 Nov 1829; departed after the 1831 deathbed sacrament scandal." },
       { period: "1830", name: "Rev. William Isaacson", role: "Vicar of St Woolos", note: "Resided at Woodbine Cottage in Feb 1830 when a son was born there." },
       { period: "1832–1835", name: "Catherine & Emily Hunt", role: "Ladies’ Boarding Seminary", note: "Conducted seminary at “the residence of the late Mr. M'Carthy” before moving to Stow Hill." },
-      { period: "1836", name: "Rev. James Francis", role: "Minister of St Paul’s & Tutor", note: "Enlarged Woodbine Cottage in Dec 1836 to receive four private boarding pupils." },
+      { period: "1836", name: "Rev. James Francis", role: "Minister of St Paul’s & Tutor", note: "Enlarged Woodbine Cottage in Dec 1836 to receive three private boarding pupils." },
       { period: "1836–1841", name: "Herbert Williams", role: "Chemist & Druggist", note: "Opened Medical Hall at No. 154 Commercial Street; advertised the 30–40 ft rear schoolroom in 1837." },
-      { period: "1838", name: "Thomas Waters", role: "Solicitor", note: "Occupied the newly reconstructed northern frontage at No. 155 Commercial Street." },
+      { period: "1838", name: "Thomas Waters", role: "Solicitor", note: "Occupied the newly reconstructed frontage at No. 155 Commercial Street." },
       { period: "1838–1841", name: "Benjamin Horton (Haston)", role: "Sawyer", note: "Named in 1838 rear tenements sale notice and 1841 Census inside McCarthy’s Court." },
       { period: "1838–1841", name: "Charles Williams", role: "Mason", note: "Named in 1838 rear tenements sale notice and 1841 Census inside McCarthy’s Court." },
       { period: "1841", name: "Jehoiada Brewer", role: "Surgeon", note: "No. 153 Commercial Street, immediately south of the entrance into McCarthy’s Court." },
@@ -2042,6 +2126,16 @@
       setupMapPan();
       setupMobilePepys();
       setupScrollNudge();
+
+      const sectionsMenu = document.getElementById('sections-menu');
+      if (sectionsMenu) {
+        sectionsMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => { sectionsMenu.open = false; });
+        });
+        document.addEventListener('click', (e) => {
+          if (!sectionsMenu.contains(e.target)) sectionsMenu.open = false;
+        });
+      }
 
       window.addEventListener('scroll', () => {
         const bar = document.getElementById('progress-bar');
